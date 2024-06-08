@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package virew;
+package view;
 
 import java.awt.Color;
-import virew.components.CadastrarPaciente;
+import view.components.CadastrarPaciente;
 
 /**
  *
