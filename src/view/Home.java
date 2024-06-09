@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-import java.awt.Color;
-import view.components.CadastrarPaciente;
-
+ 
 /**
  *
  * @author crist
@@ -310,11 +307,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnAgendarConsulta1ActionPerformed
 
     private void jBtnAgendarConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsulta2ActionPerformed
-   java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPaciente().setVisible(true);
-            }
-        });     
+   java.awt.EventQueue.invokeLater(() -> {
+       new CadastroPaciente().setVisible(true);
+   });     
         
     }//GEN-LAST:event_jBtnAgendarConsulta2ActionPerformed
 
@@ -346,10 +341,8 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 
