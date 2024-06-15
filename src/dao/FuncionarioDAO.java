@@ -70,7 +70,7 @@ public class FuncionarioDAO {
                 }
         }
                 
-        public List<Funcionario> listarTodos(){
+        public List<Funcionario> listarFuncionarios(){
                     Connection con = Conectar.getConectar();
                    List<Funcionario> listaFuncionarios = new ArrayList<>();
                    String sql = "SELECT * FROM funcionario ORDER BY nome"; 
@@ -88,7 +88,7 @@ public class FuncionarioDAO {
                              listaFuncionarios.add(f);
                          }
                    }catch(Exception exc){
-                       JOptionPane.showMessageDialog(null,"Erro ao buscar os funcionarios");
+                       JOptionPane.showMessageDialog(null,"Erro ao buscar Registro");
                    }
                    
                    return listaFuncionarios;
