@@ -14,7 +14,7 @@ public class PacienteDAO {
     private static final Connection con = Conectar.getConectar();
 
     public static boolean cadastrarPaciente(Paciente p) throws SQLException {
-        String sql = "INSERT INTO paciente (nome, bi, nascimento, morada, telefone, genero) VALUES(?, ?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO paciente (nome, bi, data_nascimento, endereco, telefone, genero) VALUES(?, ?, ?, ?, ?, ?) ";
         Date data = Date.valueOf(LocalDate.now().toString());
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, p.getNome());
@@ -33,7 +33,7 @@ public class PacienteDAO {
     }
 
     public static boolean actualizarPaciente(Paciente p) {
-        String sql = "UPDATE paciente SET nome = ? , bi = ? , nascimento = ? , morada  = ? , telefone = ? , genero = ?  WHERE id = ?";
+        String sql = "UPDATE paciente SET nome = ? , bi = ? , data_nascimento = ? , endereco  = ? , telefone = ? , genero = ?  WHERE id = ?";
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, p.getNome());
             smt.setString(2, p.getBi());
