@@ -5,59 +5,57 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Medico extends Funcionario {
-        private String numeroDaOrdem;
-        private String especialidade;
-        private LocalTime horarioTrabalho;
+        private int numeroOrdem;
+        private String medico_especialidade;
+        private String horarioTrabalho;
 
-    @Override
-    public boolean cadastrarFuncionario(String funcionario_id, String funcNome, String cargo, BigDecimal salario, LocalDate dataContratacao) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public boolean cadastrarMedico(int crm,String especialidade,LocalTime horario_trabalho){
+        return true;
     }
-    
 
-    
-
+  
     /**
-     * @return the numeroDaOrdem
+     * @return the crm
      */
-    public String getNumeroDaOrdem() {
-        return numeroDaOrdem;
+    public int getNumeroOrdem() {
+        return numeroOrdem;
     }
 
     /**
-     * @param numeroDaOrdem the numeroDaOrdem to set
+     * @param crm the crm to set
      */
-    public void setNumeroDaOrdem(String numeroDaOrdem) {
-        this.numeroDaOrdem = numeroDaOrdem;
+    public void setNumeroOrdem(int numeroOrdem) {
+        this.numeroOrdem = numeroOrdem;
     }
 
     /**
      * @return the especialidade
      */
-    public String getEspecialidade() {
-        return especialidade;
+    public String getMedico_especialidade() {
+        return medico_especialidade;
     }
 
     /**
      * @param especialidade the especialidade to set
      */
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    public void setMedico_especialidade(String medico_especialidade) {
+        this.medico_especialidade = medico_especialidade;
     }
 
     /**
      * @return the horarioTrabalho
      */
-    public LocalTime getHorarioTrabalho() {
+    public String getHorarioTrabalho() {
         return horarioTrabalho;
     }
 
     /**
      * @param horarioTrabalho the horarioTrabalho to set
      */
-    public void setHorarioTrabalho(LocalTime horarioTrabalho) {
+    public void setHorarioTrabalho(String horarioTrabalho) {
         this.horarioTrabalho = horarioTrabalho;
     }
-
+    
     
 }

@@ -83,7 +83,7 @@ public class TelaPaciente extends javax.swing.JFrame {
         jLabel5.setText("NASCIDO AOS");
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -214,7 +214,7 @@ public class TelaPaciente extends javax.swing.JFrame {
         String bilhete = jTextBilhete.getText();
         String phone = jTextPhone.getText();
         String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
-        Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+        Paciente p = new Paciente(nome,bilhete,morada,phone, genero);
         System.out.println(p.cadastrarPaciente());
 
     }//GEN-LAST:event_jBtnCadastrarActionPerformed
@@ -258,9 +258,7 @@ public class TelaPaciente extends javax.swing.JFrame {
     private javax.swing.JButton jBtnCadastrar;
     private javax.swing.JComboBox<String> jCmbBoxGenero;
     private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -268,8 +266,6 @@ public class TelaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jTextBilhete;
     private javax.swing.JTextField jTextMorada;
