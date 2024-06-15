@@ -1,14 +1,15 @@
 package dao;
 
-import mapeamento.Medico;
-import utilitarios.Conectar;
+import java.awt.HeadlessException;
+import models.Medico;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import controllers.Conectar;
 import java.util.List;
 import java.sql.ResultSet;
-import java.time.LocalDate;
+import java.sql.SQLException;
 
 public class MedicoDAO {
     public void cadastrarMedico (Medico m){
@@ -23,7 +24,7 @@ public class MedicoDAO {
             JOptionPane.showMessageDialog(null, "Cadastrado com  sucesso");
             smt.close();
             con.close();
-        }catch(Exception ex){
+        }catch(HeadlessException | SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar medico");
         }
     }
@@ -36,12 +37,12 @@ public class MedicoDAO {
         PreparedStatement smt = con.prepareStatement(sql);
         smt.setInt(1, m.getNumeroOrdem());
         smt.setString(2, m.getNome_funcionario());
-        smt.setString(3, m.getHorarioTrabalho().toString());
+        smt.setString(3, m.getHorarioTrabalho());
         smt.executeUpdate();
         JOptionPane.showMessageDialog(null,"Medico actualizado");
         smt.close();
         con.close();
-    }catch(Exception ex){
+    }catch(HeadlessException | SQLException ex){
         JOptionPane.showMessageDialog(null,"Erro ao cadastrar");
     }
     }
@@ -59,7 +60,7 @@ public class MedicoDAO {
         JOptionPane.showMessageDialog(null, "Excluido com sucesso");
         smt.close();
         con.close();
-    }catch(Exception ex){
+    }catch(HeadlessException | SQLException ex){
         JOptionPane.showMessageDialog(null,"Erro ao excluir Medico");
     }
     }
@@ -79,7 +80,7 @@ public class MedicoDAO {
                 m.setHorarioTrabalho(resultado.getString("horario_trabalho"));
                 listaMedicos.add(m);
             }
-        }catch(Exception ex){
+        }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro ao buscar os Medicos");
         }
         

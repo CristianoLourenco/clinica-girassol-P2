@@ -1,4 +1,4 @@
-package mapeamento;
+package models;
 
 import java.time.LocalDate;
 

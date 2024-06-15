@@ -3,9 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
-import mapeamento.Paciente;
-
+ 
 /**
  *
  * @author crist
@@ -270,8 +268,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String bilhete = jTextBilhete.getText();
         String phone = jTextPhone.getText();
         String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
-        Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
-        System.out.println(p.cadastrarPaciente());
+        //Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+       // System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private void jCmbBoxGenero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxGenero1ActionPerformed
@@ -307,6 +305,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CadastrarFuncionario().setVisible(true);
             }

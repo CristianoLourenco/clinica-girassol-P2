@@ -1,1 +1,0 @@
-mapeamento.Especialidade

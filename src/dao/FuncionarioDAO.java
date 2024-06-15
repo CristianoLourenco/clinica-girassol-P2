@@ -1,14 +1,13 @@
 package dao;
 
-import mapeamento.Funcionario;
-import utilitarios.Conectar;
+import models.Funcionario;
+import controllers.Conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.List;
-import java.sql.ResultSet;
-import java.time.LocalDate;
+import java.sql.ResultSet; 
 
 public class FuncionarioDAO {
     
