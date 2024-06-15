@@ -97,7 +97,4 @@ public class Paciente {
     public void setPaciente_id(int paciente_id) {
         this.id = paciente_id;
     }
-
-    
-      
 }
