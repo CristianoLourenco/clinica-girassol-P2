@@ -1,9 +1,16 @@
 package mapeamento;
 
 public class Especialidade {
-        private String especialidade_id;
+        private int especialidade_id;
         private String nomeEspecialidade;
         private String descricao;
+
+    public Especialidade(String nomeEspecilidade,String descricao) {
+       this.nomeEspecialidade = nomeEspecilidade;
+       this.descricao = descricao;
+    }
+        
+        
         
         public boolean cadastrarEspecialidade (Especialidade especialidade){
             return true;
@@ -14,14 +21,14 @@ public class Especialidade {
     /**
      * @return the especialidade_id
      */
-    public String getEspecialidade_id() {
+    public int getEspecialidade_id() {
         return especialidade_id;
     }
 
     /**
      * @param especialidade_id the especialidade_id to set
      */
-    public void setEspecialidade_id(String especialidade_id) {
+    public void setEspecialidade_id(int especialidade_id) {
         this.especialidade_id = especialidade_id;
     }
 

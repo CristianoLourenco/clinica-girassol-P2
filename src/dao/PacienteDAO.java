@@ -16,7 +16,8 @@ public class PacienteDAO {
     public static boolean cadastrarPaciente(Paciente p) throws SQLException {
         String sql = "INSERT INTO paciente (nome, bi, data_nascimento, endereco, telefone, genero) VALUES(?, ?, ?, ?, ?, ?) ";
         Date data = Date.valueOf(LocalDate.now().toString());
-        try (PreparedStatement smt = con.prepareStatement(sql)) {
+        try {
+            PreparedStatement smt = con.prepareStatement(sql);
             smt.setString(1, p.getNome());
             smt.setString(2, p.getBi());
             smt.setDate(3,data);
@@ -34,7 +35,8 @@ public class PacienteDAO {
 
     public static boolean actualizarPaciente(Paciente p) {
         String sql = "UPDATE paciente SET nome = ? , bi = ? , data_nascimento = ? , endereco  = ? , telefone = ? , genero = ?  WHERE id = ?";
-        try (PreparedStatement smt = con.prepareStatement(sql)) {
+        try {
+            PreparedStatement smt = con.prepareStatement(sql);
             smt.setString(1, p.getNome());
             smt.setString(2, p.getBi());
             smt.setString(3, p.getDataNascimento());
@@ -55,7 +57,8 @@ public class PacienteDAO {
         String sql = "DELETE FROM paciente WHERE  id = ? ";
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Paciente " + p.getNome() + " ? ", "Excluir", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
-            try (PreparedStatement smt = con.prepareStatement(sql)) {
+            try{
+                PreparedStatement smt = con.prepareStatement(sql);
                 smt.setInt(1, p.getPaciente_id());
                 smt.executeUpdate();
                 smt.close();
@@ -70,7 +73,8 @@ public class PacienteDAO {
     public static List<Paciente> listarPacientes() {
         List<Paciente> lista = new ArrayList<>();
         String sql = "SELECT * FROM paciente ORDER BY nome";
-        try (PreparedStatement smt = con.prepareStatement(sql)) {
+        try{
+            PreparedStatement smt = con.prepareStatement(sql);
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
 
