@@ -4,6 +4,8 @@
  */
 package view;
 
+import mapeamento.Paciente;
+
 /**
  *
  * @author crist
@@ -51,7 +53,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

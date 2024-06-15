@@ -4,6 +4,8 @@
  */
 package view;
  
+import java.awt.Button;
+
 /**
  *
  * @author crist
@@ -33,6 +35,7 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lbConsulta1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
@@ -71,7 +74,7 @@ public class Home extends javax.swing.JFrame {
                 lbPacienteMouseClicked(evt);
             }
         });
-        MenusPanel.add(lbPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 188, -1, -1));
+        MenusPanel.add(lbPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         lbConsulta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbConsulta.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,6 +96,23 @@ public class Home extends javax.swing.JFrame {
         lbConsulta1.setForeground(new java.awt.Color(255, 255, 255));
         lbConsulta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/agendarIcon.png"))); // NOI18N
         MenusPanel.add(lbConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 342, -1, -1));
+
+        jButton1.setText("Paciente");
+        jButton1.setAutoscrolls(true);
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jButton1FocusGained(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        MenusPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 190, 50));
 
         getContentPane().add(MenusPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 520));
 
@@ -360,6 +380,14 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnAgendarConsulta4ActionPerformed
 
+    private void jButton1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jButton1FocusGained
+        
+    }//GEN-LAST:event_jButton1FocusGained
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println("Paciente");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,12 +420,14 @@ public class Home extends javax.swing.JFrame {
             new Home().setVisible(true);
         });
     }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenusPanel;
     private javax.swing.JButton jBtnAgendarConsulta2;
     private javax.swing.JButton jBtnAgendarConsulta3;
     private javax.swing.JButton jBtnAgendarConsulta4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

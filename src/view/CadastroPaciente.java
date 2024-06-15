@@ -45,7 +45,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextPhone = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -259,21 +260,21 @@ public class CadastroPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnCadastrar;
+    javax.swing.JButton jBtnCadastrar;
     private javax.swing.JComboBox<String> jCmbBoxGenero;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextBilhete;
-    private javax.swing.JTextField jTextMorada;
-    private javax.swing.JTextField jTextNome;
-    private javax.swing.JTextField jTextPhone;
+    javax.swing.JFormattedTextField jFormattedTextField2;
+    javax.swing.JLabel jLabel11;
+    javax.swing.JLabel jLabel13;
+    javax.swing.JLabel jLabel3;
+    javax.swing.JLabel jLabel4;
+    javax.swing.JLabel jLabel5;
+    javax.swing.JLabel jLabel6;
+    javax.swing.JLabel jLabel7;
+    javax.swing.JPanel jPanel1;
+    javax.swing.JPanel jPanel9;
+    javax.swing.JTextField jTextBilhete;
+    javax.swing.JTextField jTextMorada;
+    javax.swing.JTextField jTextNome;
+    javax.swing.JTextField jTextPhone;
     // End of variables declaration//GEN-END:variables
 }
