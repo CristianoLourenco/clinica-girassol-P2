@@ -5,18 +5,22 @@ import java.time.LocalDate;
 
 public class Consulta {
     private String id;
-    private final Paciente paciente;
+    private String paciente_id;
+    private String medico_id;
     private LocalDate dataConsulta;
     private boolean status;
-    private Especialidade especialidade;
+    private String especialidade;
     
      
-    public Consulta(Paciente paciente, LocalDate dataConsulta, boolean status, Especialidade especialidade) {
-        this.paciente = paciente;
+    public Consulta(String paciente_id,String medico_id ,LocalDate dataConsulta, boolean status, String especialidade) {
+        this.paciente_id = paciente_id;
+        this.medico_id = medico_id;
         this.dataConsulta = dataConsulta;
         this.status = status;
         this.especialidade = especialidade;
     }
+    
+    
 
     public void setId(String id) {
         this.id = id;
@@ -27,29 +31,37 @@ public class Consulta {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    public void setEspecialidade(Especialidade especialidade) {
+    public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
     }
 
     public String getId() {
         return id;
     }
-    public Paciente getPaciente() {
-        return paciente;
+    public String getPaciente_id() {
+        return paciente_id;
     }
     public LocalDate getDataConsulta() {
         return dataConsulta;
     }
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
-    public Especialidade getEspecialidade() {
+    public String getEspecialidade() {
         return especialidade;
+    }
+    
+     public String getMedico_id() {
+        return medico_id;
     }
     
     //private Medico medico;
     public void agendarConsulta(){}
     public void cancelarConsulta(){}
     public void remarcarConsulta(){}
+
+    
+   
+
     
 }
