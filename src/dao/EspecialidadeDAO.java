@@ -46,7 +46,7 @@ public class EspecialidadeDAO {
         }
         
         public static boolean excluirEspecialidade(Especialidade esp){
-           String sql = "DELETE FROM especialidade id = ?";
+           String sql = "DELETE FROM especialidade WHERE id = ?";
            int opcao = JOptionPane.showConfirmDialog(null,"Deseja excluir a especialidade "+esp.getNomeEspecialidade()+" ? ","Excluir",JOptionPane.YES_NO_OPTION);
            if(opcao == JOptionPane.YES_OPTION){
                try{
@@ -62,7 +62,7 @@ public class EspecialidadeDAO {
            return true;
         }
         
-        public static  List<Especialidade> listarEspecialidade(){
+        public static List<Especialidade> listarEspecialidade(){
             List<Especialidade> lista = new ArrayList<>();
             String sql = "SELECT * FROM especialidade ORDER BY nomeEspecialidade";
             try{
