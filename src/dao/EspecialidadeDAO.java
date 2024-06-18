@@ -8,13 +8,13 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class EspecialidadeDAO {
+public abstract class EspecialidadeDAO{
+    private static Connection con = null;
     
-    private static final Connection con = Conectar.getConectar();
-       
+    
         public static boolean cadastrarEspecialidade(Especialidade esp){
-            String sql = "INSERT INTO paciente (nomeEspecialidade,descricao) VALUES (?,?)";
-            
+            String sql = "INSERT INTO especialidade (nome,descricao) VALUES (?,?)";
+            con = Conectar.getConectar();
             try(PreparedStatement smt = con.prepareStatement(sql);){
                 smt.setString(1, esp.getNomeEspecialidade());
                 smt.setString(2,esp.getDescricao());
@@ -23,13 +23,15 @@ public abstract class EspecialidadeDAO {
                 smt.close();
                 con.close();
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Erro ao cadastrar especialidade");
+               //JOptionPane.showMessageDialog(null,"Erro ao cadastrar especialidade");
+               throw new RuntimeException(ex.getMessage());
             }
             return true;
         }
         
-        public static boolean actualizarEspecialidade(Especialidade esp){
+        public static boolean actualizarEspecialidade(Especialidade esp)throws Exception{
             String sql = "UPDATE especialidade SET  nomeEspecialidade = ? , descricao = ? WHERE id = ?";
+            con = Conectar.getConectar();
             try(PreparedStatement smt = con.prepareStatement(sql);){
                 smt.setString(1,esp.getNomeEspecialidade());
                 smt.setString(2, esp.getDescricao());
@@ -38,12 +40,13 @@ public abstract class EspecialidadeDAO {
                 smt.close();
                 con.close();
             }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Erro ao actualizar especialidade");
+                  throw new Exception("Erro ao actualizar especialidade"+ ex.getMessage());
             }
             return true;
         }
         
-        public static boolean excluirEspecialidade(Especialidade esp){
+        public static boolean excluirEspecialidade(Especialidade esp)throws Exception{
+            con = Conectar.getConectar();
            String sql = "DELETE FROM especialidade WHERE id = ?";
            int opcao = JOptionPane.showConfirmDialog(null,"Deseja excluir a especialidade "+esp.getNomeEspecialidade()+" ? ","Excluir",JOptionPane.YES_NO_OPTION);
            if(opcao == JOptionPane.YES_OPTION){
@@ -52,14 +55,15 @@ public abstract class EspecialidadeDAO {
                    smt.executeUpdate();
                    smt.close();
                    con.close();
-               }catch(Exception ex){
-                   JOptionPane.showMessageDialog(null,"Erro ao Deletar");
+               }catch(Exception ex){ 
+                    throw new Exception("Erro ao Deletar"+ ex.getMessage());
                }
            }
            return true;
         }
         
-        public static List<Especialidade> listarEspecialidade(){
+        public static List<Especialidade> listarEspecialidade()throws Exception{
+            con = Conectar.getConectar();
             List<Especialidade> lista = new ArrayList<>();
             String sql = "SELECT * FROM especialidade ORDER BY nomeEspecialidade";
             try(PreparedStatement smt = con.prepareStatement(sql);){
@@ -75,8 +79,8 @@ public abstract class EspecialidadeDAO {
                     esp.setDescricao(descricao);
                     lista.add(esp);
                 }
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null,"Erro ao buscar Registro");
+            }catch(Exception ex){ 
+                 throw new Exception("Erro ao buscar Registro"+ ex.getMessage());
             }
             return lista;
         }

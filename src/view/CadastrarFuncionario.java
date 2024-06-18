@@ -4,6 +4,8 @@
  */
 package view;
  
+import models.Funcionario;
+
 /**
  *
  * @author crist
@@ -41,7 +43,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jBtnCadastrarFuncionario = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jTextPhone = new javax.swing.JTextField();
-        jCmbBoxGenero1 = new javax.swing.JComboBox<>();
+        jCmbBoxFuncao = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextSalario = new javax.swing.JTextField();
@@ -113,10 +115,10 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel11.setText("TELEFONE");
 
-        jCmbBoxGenero1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Enfermeiro", "Atendente" }));
-        jCmbBoxGenero1.addActionListener(new java.awt.event.ActionListener() {
+        jCmbBoxFuncao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medico", "Enfermeiro", "Atendente" }));
+        jCmbBoxFuncao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCmbBoxGenero1ActionPerformed(evt);
+                jCmbBoxFuncaoActionPerformed(evt);
             }
         });
 
@@ -190,7 +192,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                             .addComponent(jTextBilhete)
                             .addComponent(jTextMorada)
                             .addComponent(jCmbBoxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCmbBoxGenero1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jCmbBoxFuncao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,7 +233,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel8)
-                            .addComponent(jCmbBoxGenero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCmbBoxFuncao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -269,13 +271,13 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String bilhete = jTextBilhete.getText();
         String phone = jTextPhone.getText();
         String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
-        //Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+        //Funcionario funcionarioModel = new Funcionario(nome,morada,bilhete,phone, genero);
        // System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
-    private void jCmbBoxGenero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxGenero1ActionPerformed
+    private void jCmbBoxFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxFuncaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCmbBoxGenero1ActionPerformed
+    }//GEN-LAST:event_jCmbBoxFuncaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,8 +317,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnCadastrarFuncionario;
+    private javax.swing.JComboBox<String> jCmbBoxFuncao;
     private javax.swing.JComboBox<String> jCmbBoxGenero;
-    private javax.swing.JComboBox<String> jCmbBoxGenero1;
     private javax.swing.JFormattedTextField jFTextDataContrato;
     private javax.swing.JFormattedTextField jFTextNascimento;
     private javax.swing.JLabel jLabel10;

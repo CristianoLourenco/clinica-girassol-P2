@@ -1,6 +1,6 @@
 package models;
-import dao.EspecialidadeDAO;
-import javax.swing.JOptionPane;
+import dao.EspecialidadeDAO; 
+
 
 public class Especialidade {
         private int especialidade_id;
@@ -10,12 +10,13 @@ public class Especialidade {
     public Especialidade(String nomeEspecilidade,String descricao) {
        this.nomeEspecialidade = nomeEspecilidade;
        this.descricao = descricao;
+       
     }
         public boolean cadastrarEspecialidade (){
             try {
-                EspecialidadeDAO.cadastrarEspecialidade(this);
+               EspecialidadeDAO.cadastrarEspecialidade(this);
             } catch (Exception e) {
-                   JOptionPane.showMessageDialog(null, "Erro: "+ e.getMessage());
+                   throw new RuntimeException(e.getMessage());
             }
             return true;
         }

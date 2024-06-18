@@ -133,7 +133,9 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
         String nome = jTextNomeEspecialidade.getText();
         String descricao = jTextDescricao.getText();
         Especialidade especialidadeModel = new Especialidade(nome, descricao);
-        especialidadeModel.cadastrarEspecialidade();
+        boolean isSucced  = especialidadeModel.cadastrarEspecialidade();
+        
+        System.out.println(isSucced);
      //   System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
@@ -166,10 +168,8 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastroEspecialidade().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroEspecialidade().setVisible(true);
         });
     }
 
