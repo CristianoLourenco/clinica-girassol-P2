@@ -8,15 +8,14 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
 
-public class EspecialidadeDAO {
+public abstract class EspecialidadeDAO {
     
     private static final Connection con = Conectar.getConectar();
        
         public static boolean cadastrarEspecialidade(Especialidade esp){
             String sql = "INSERT INTO paciente (nomeEspecialidade,descricao) VALUES (?,?)";
             
-            try{
-                PreparedStatement smt = con.prepareStatement(sql);
+            try(PreparedStatement smt = con.prepareStatement(sql);){
                 smt.setString(1, esp.getNomeEspecialidade());
                 smt.setString(2,esp.getDescricao());
                 smt.executeUpdate();
@@ -31,8 +30,7 @@ public class EspecialidadeDAO {
         
         public static boolean actualizarEspecialidade(Especialidade esp){
             String sql = "UPDATE especialidade SET  nomeEspecialidade = ? , descricao = ? WHERE id = ?";
-            try{
-                PreparedStatement smt = con.prepareStatement(sql);
+            try(PreparedStatement smt = con.prepareStatement(sql);){
                 smt.setString(1,esp.getNomeEspecialidade());
                 smt.setString(2, esp.getDescricao());
                 smt.executeUpdate();
@@ -49,8 +47,7 @@ public class EspecialidadeDAO {
            String sql = "DELETE FROM especialidade WHERE id = ?";
            int opcao = JOptionPane.showConfirmDialog(null,"Deseja excluir a especialidade "+esp.getNomeEspecialidade()+" ? ","Excluir",JOptionPane.YES_NO_OPTION);
            if(opcao == JOptionPane.YES_OPTION){
-               try{
-                   PreparedStatement smt = con.prepareStatement(sql);
+               try(PreparedStatement smt = con.prepareStatement(sql);){
                    smt.setInt(1,esp.getEspecialidade_id());
                    smt.executeUpdate();
                    smt.close();
@@ -65,8 +62,7 @@ public class EspecialidadeDAO {
         public static List<Especialidade> listarEspecialidade(){
             List<Especialidade> lista = new ArrayList<>();
             String sql = "SELECT * FROM especialidade ORDER BY nomeEspecialidade";
-            try{
-                PreparedStatement smt = con.prepareStatement(sql);
+            try(PreparedStatement smt = con.prepareStatement(sql);){
                 ResultSet resultado = smt.executeQuery();
                 while (resultado.next()){
                     

@@ -26,13 +26,13 @@ public class Home extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jBtnAgendarConsulta2 = new javax.swing.JButton();
+        jBtnCadastrarPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jTextField2 = new javax.swing.JTextField();
-        jBtnAgendarConsulta1 = new javax.swing.JButton();
+        jBtnCadastrarFuncionario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -131,10 +131,10 @@ public class Home extends javax.swing.JFrame {
         jTable3.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable3);
 
-        jBtnAgendarConsulta2.setText("Cadastrar Paceinte");
-        jBtnAgendarConsulta2.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCadastrarPaciente.setText("Cadastrar Paceinte");
+        jBtnCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAgendarConsulta2ActionPerformed(evt);
+                jBtnCadastrarPacienteActionPerformed(evt);
             }
         });
 
@@ -151,7 +151,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBtnAgendarConsulta2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -164,7 +164,7 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBtnAgendarConsulta2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 47, Short.MAX_VALUE))
         );
 
@@ -190,10 +190,10 @@ public class Home extends javax.swing.JFrame {
 
         jTextField2.setText("Pesquisar");
 
-        jBtnAgendarConsulta1.setText("Cadastrar Funcionario");
-        jBtnAgendarConsulta1.addActionListener(new java.awt.event.ActionListener() {
+        jBtnCadastrarFuncionario.setText("Cadastrar Funcionario");
+        jBtnCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAgendarConsulta1ActionPerformed(evt);
+                jBtnCadastrarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -212,7 +212,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBtnAgendarConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBtnCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
         jPanel2Layout.setVerticalGroup(
@@ -224,7 +224,7 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jBtnAgendarConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 41, Short.MAX_VALUE))
         );
 
@@ -249,6 +249,11 @@ public class Home extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jBtnAgendarConsulta.setText("Agendar consulta");
+        jBtnAgendarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAgendarConsultaActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("Pesquisar");
 
@@ -293,18 +298,23 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lbPacienteMouseClicked
 
-    private void jBtnAgendarConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsulta1ActionPerformed
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastrarFuncionario().setVisible(true);
-            }
-        });     
-    }//GEN-LAST:event_jBtnAgendarConsulta1ActionPerformed
+    private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
+        java.awt.EventQueue.invokeLater(()->{
+            new CadastrarFuncionario().setVisible(true);
+        });
+    }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
-    private void jBtnAgendarConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsulta2ActionPerformed
-        
-    }//GEN-LAST:event_jBtnAgendarConsulta2ActionPerformed
+    private void jBtnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarPacienteActionPerformed
+        java.awt.EventQueue.invokeLater(()->{
+            new CadastroPaciente().setVisible(true);
+        });
+    }//GEN-LAST:event_jBtnCadastrarPacienteActionPerformed
+
+    private void jBtnAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsultaActionPerformed
+            java.awt.EventQueue.invokeLater(()->{
+                new CadastroConsulta().setVisible(true);
+            });        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnAgendarConsultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,18 +344,16 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenusPanel;
     private javax.swing.JButton jBtnAgendarConsulta;
-    private javax.swing.JButton jBtnAgendarConsulta1;
-    private javax.swing.JButton jBtnAgendarConsulta2;
+    private javax.swing.JButton jBtnCadastrarFuncionario;
+    private javax.swing.JButton jBtnCadastrarPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

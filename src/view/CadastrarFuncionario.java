@@ -52,6 +52,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de Funcionários");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

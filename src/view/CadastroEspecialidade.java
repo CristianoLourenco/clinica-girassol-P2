@@ -4,6 +4,8 @@
  */
 package view;
 
+import models.Especialidade;
+
  
 public class CadastroEspecialidade extends javax.swing.JFrame {
 
@@ -130,7 +132,8 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
         String nome = jTextNomeEspecialidade.getText();
         String descricao = jTextDescricao.getText();
-   //     Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+        Especialidade especialidadeModel = new Especialidade(nome, descricao);
+        especialidadeModel.cadastrarEspecialidade();
      //   System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
