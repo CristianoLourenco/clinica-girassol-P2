@@ -1,9 +1,7 @@
 package models;
 
 import dao.PacienteDAO;
-import java.sql.SQLException; 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;  
 import javax.swing.JOptionPane;
 
 public class Paciente {
@@ -31,7 +29,7 @@ public class Paciente {
             try {
                 resultado = PacienteDAO.cadastrarPaciente(this);
             } catch (SQLException ex) {
-                JOptionPane.showConfirmDialog(null, "Falha na Operação: "+ex.getMessage());
+                JOptionPane.showConfirmDialog(null, "Falha na Operação: "+ ex.getMessage());
                 throw new RuntimeException(ex.getMessage());
             }
             return resultado ;
