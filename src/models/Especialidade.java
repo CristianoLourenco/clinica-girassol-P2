@@ -13,12 +13,8 @@ public class Especialidade {
        
     }
         public boolean cadastrarEspecialidade (){
-            try {
-               EspecialidadeDAO.cadastrarEspecialidade(this);
-            } catch (Exception e) {
-                   throw new RuntimeException(e.getMessage());
-            }
-            return true;
+            EspecialidadeDAO dao = new EspecialidadeDAO(this);
+            return dao.insertDaoObject();
         }
 
         

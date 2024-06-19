@@ -8,9 +8,9 @@ package controllers;
  *
  * @author crist
  */
-public interface IDaoC {
+public interface IDao {
     public boolean insertDaoObject();
-    public boolean listDaoObject();
+    public Object listDaoObject();
     public boolean updateDaoObject();
     public boolean deleteDaoObject();
 }

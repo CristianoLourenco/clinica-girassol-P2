@@ -4,10 +4,10 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import models.Consulta;
 import controllers.Conectar;
-import controllers.IDaoC;
 import java.sql.Connection;
+import controllers.IDao;
 
-public class ConsultaDAO implements IDaoC{
+public class ConsultaDAO implements IDao{
    private final Connection con;
    private final Consulta consulta;
 
@@ -32,15 +32,10 @@ public class ConsultaDAO implements IDaoC{
        }catch(Exception ex){
            JOptionPane.showMessageDialog(null,"Falha na Operação: "+ex.getMessage());
            throw new RuntimeException(ex.getMessage());
-
        }
        return true;
     }
-
-    @Override
-    public boolean listDaoObject() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+ 
 
     @Override
     public boolean updateDaoObject() {
@@ -49,6 +44,11 @@ public class ConsultaDAO implements IDaoC{
 
     @Override
     public boolean deleteDaoObject() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Object listDaoObject() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
