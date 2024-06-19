@@ -4,6 +4,7 @@
  */
 package view;
  
+import java.math.BigDecimal;
 import models.Funcionario;
 
 /**
@@ -270,9 +271,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String morada = jTextMorada.getText();
         String bilhete = jTextBilhete.getText();
         String phone = jTextPhone.getText();
-        String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
-        //Funcionario funcionarioModel = new Funcionario(nome,morada,bilhete,phone, genero);
-       // System.out.println(p.cadastrarPaciente());
+        char genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex()).toCharArray()[0];
+        BigDecimal salario = BigDecimal.valueOf(10000);
+        Funcionario funcionarioModel = new Funcionario(nome,morada,bilhete,phone,salario, genero);
+        boolean result = funcionarioModel.cadastrarFuncionario();
+        System.out.println(result);
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private void jCmbBoxFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxFuncaoActionPerformed
@@ -307,11 +310,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new CadastrarFuncionario().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastrarFuncionario().setVisible(true);
         });
     }
 

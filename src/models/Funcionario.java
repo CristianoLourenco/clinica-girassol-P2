@@ -1,7 +1,7 @@
 package models;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import dao.FuncionarioDAO;
 
 public  class Funcionario {
         private int id_funcionario;
@@ -9,14 +9,25 @@ public  class Funcionario {
         private String bi_funcionario;
         private String data_Contratacao;
         private String cargo;
+        private char genero;
         private BigDecimal salario;
+
+    public Funcionario(String nome_funcionario, String bi_funcionario, String data_Contratacao, String cargo, BigDecimal salario,char genero) {
+        this.nome_funcionario = nome_funcionario;
+        this.bi_funcionario = bi_funcionario;
+        this.data_Contratacao = data_Contratacao;
+        this.cargo = cargo;
+        this.salario = salario;
+        this.genero = genero;
+    }
+
+
        
         
-    public  boolean cadastrarFuncionario (String funcionario_id, String funcNome, String cargo, BigDecimal salario, LocalDate dataContratacao){
-        return true;
+    public  boolean cadastrarFuncionario (){
+        FuncionarioDAO dao = new FuncionarioDAO(this);
+        return dao.insertDaoObject();
     };
-
-        
          
     public int getId_funcionario() {
         return id_funcionario;
@@ -70,6 +81,9 @@ public  class Funcionario {
         return salario;
     }
 
+    public char getGenero (){
+        return this.genero;
+    }
     
     public void setSalario(BigDecimal salario) {
         this.salario = salario;

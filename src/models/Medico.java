@@ -1,5 +1,6 @@
 package models;
 
+import java.math.BigDecimal;
 import java.time.LocalTime;
 
  
@@ -8,6 +9,10 @@ public class Medico extends Funcionario {
         private int numeroOrdem;
         private String medico_especialidade;
         private String horarioTrabalho;
+
+    public Medico(String nome_funcionario, String bi_funcionario, String data_Contratacao, String cargo, BigDecimal salario, char genero) {
+        super(nome_funcionario, bi_funcionario, data_Contratacao, cargo, salario, genero);
+    }
 
     
     public boolean cadastrarMedico(int crm,String especialidade,LocalTime horario_trabalho){

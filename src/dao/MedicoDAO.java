@@ -67,9 +67,9 @@ public class MedicoDAO {
     }
     
     public List<Medico> listarTodos(){
-        Connection con = Conectar.getConectar();
+       Connection con = Conectar.getConectar();
         List<Medico> listaMedicos = new ArrayList<>();
-        String sql = "SELECT * FROM medico ORDER BY  numeroOrdem";
+       /*  String sql = "SELECT * FROM medico ORDER BY  numeroOrdem";
         try{
             PreparedStatement smt = con.prepareStatement(sql);
             ResultSet resultado = smt.executeQuery();
@@ -83,7 +83,7 @@ public class MedicoDAO {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro ao buscar os Medicos");
         }
-        
+        */
         return  listaMedicos;
     }
 }
