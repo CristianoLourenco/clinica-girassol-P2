@@ -4,6 +4,7 @@ import dao.PacienteDAO;
 import java.sql.SQLException; 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Paciente {
         private int id;
@@ -14,10 +15,10 @@ public class Paciente {
         private String telefone;
         private String genero;
 
-    public Paciente(String nome, String bi, String morada, String telefone, String genero) { 
+    public Paciente(String nome, String bi, String morada, String telefone, String genero, String dataNascimento) { 
         this.nome = nome;
         this.bi = bi;
-        //this.dataNascimento = dataNascimento;
+        this.dataNascimento = dataNascimento;
         this.morada = morada;
         this.telefone = telefone;
         this.genero = genero;
@@ -25,14 +26,15 @@ public class Paciente {
         
         
         
-      public boolean cadastrarPaciente (){
-            boolean pacienteDao = false; 
+      public boolean cadastrarPaciente () {
+            boolean resultado = false; 
             try {
-                pacienteDao = PacienteDAO.cadastrarPaciente(this);
+                resultado = PacienteDAO.cadastrarPaciente(this);
             } catch (SQLException ex) {
-                Logger.getLogger(Paciente.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showConfirmDialog(null, "Falha na Operação: "+ex.getMessage());
+                throw new RuntimeException(ex.getMessage());
             }
-            return pacienteDao ;
+            return resultado ;
       }  
  
     public String getNome() {

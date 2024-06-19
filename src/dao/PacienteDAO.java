@@ -11,13 +11,15 @@ import java.util.ArrayList;
 
 public class PacienteDAO {
 
-    private static final Connection con = Conectar.getConectar();
+    private static Connection con = null;
 
     public static boolean cadastrarPaciente(Paciente p) throws SQLException {
+        con = Conectar.getConectar();
         String sql = "INSERT INTO paciente (nome, bi, data_nascimento, endereco, telefone, genero) VALUES(?, ?, ?, ?, ?, ?) ";
-        Date data = Date.valueOf(LocalDate.now().toString());
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        Date data = Date.valueOf(p.getDataNascimento());
+        
+        System.out.println(p.getDataNascimento());
+        try (PreparedStatement smt = con.prepareStatement(sql)){
             smt.setString(1, p.getNome());
             smt.setString(2, p.getBi());
             smt.setDate(3,data);
@@ -29,11 +31,13 @@ public class PacienteDAO {
             con.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
         }
         return true;
     }
 
     public static boolean actualizarPaciente(Paciente p) {
+         con = Conectar.getConectar();
         String sql = "UPDATE paciente SET nome = ? , bi = ? , data_nascimento = ? , endereco  = ? , telefone = ? , genero = ?  WHERE id = ?";
         try {
             PreparedStatement smt = con.prepareStatement(sql);
@@ -54,6 +58,7 @@ public class PacienteDAO {
     }
 
     public static boolean excluirPaciente(Paciente p) {
+         con = Conectar.getConectar();
         String sql = "DELETE FROM paciente WHERE  id = ? ";
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Paciente " + p.getNome() + " ? ", "Excluir", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
@@ -86,8 +91,7 @@ public class PacienteDAO {
                 String phone = (resultado.getString("telefone"));
                 String genero = (resultado.getString("genero"));
                 
-                Paciente p = new Paciente(nome, bilhete, morada, phone, genero);
-                p.setDataNascimento(nascimento);
+                Paciente p = new Paciente(nome, bilhete, morada, phone, genero,nascimento); 
                 p.setPaciente_id(id);
                 lista.add(p);
             }

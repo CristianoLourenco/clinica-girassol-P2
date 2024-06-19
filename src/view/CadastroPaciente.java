@@ -26,7 +26,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextBilhete = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        jFtextDataNascimento = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextMorada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
         jLabel5.setText("NASCIDO AOS");
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+            jFtextDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -111,7 +111,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jFtextDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,7 +141,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFtextDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCmbBoxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(47, 47, 47)
@@ -181,7 +181,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
         String bilhete = jTextBilhete.getText();
         String phone = jTextPhone.getText();
         String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
-        Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+        String nascimento = jFtextDataNascimento.getText();
+        Paciente p = new Paciente(nome,morada,bilhete,phone, genero,nascimento);
         System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarActionPerformed
 
@@ -229,7 +230,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     javax.swing.JButton jBtnCadastrar;
     javax.swing.JComboBox<String> jCmbBoxGenero;
-    javax.swing.JFormattedTextField jFormattedTextField2;
+    javax.swing.JFormattedTextField jFtextDataNascimento;
     javax.swing.JLabel jLabel11;
     javax.swing.JLabel jLabel13;
     javax.swing.JLabel jLabel3;
