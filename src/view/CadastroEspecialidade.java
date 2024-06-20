@@ -133,9 +133,8 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
         String nome = jTextNomeEspecialidade.getText();
         String descricao = jTextDescricao.getText();
         Especialidade especialidadeModel = new Especialidade(nome, descricao);
-        boolean isSucced  = especialidadeModel.cadastrarEspecialidade();
-        
-        System.out.println(isSucced);
+        boolean result  = especialidadeModel.cadastrarEspecialidade();
+        System.out.println("Especialidade cadastrada: "+ result);
      //   System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
