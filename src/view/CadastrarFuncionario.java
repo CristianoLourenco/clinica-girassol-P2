@@ -88,7 +88,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel5.setText("NASCIDO AOS");
 
         try {
-            jFTextNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFTextNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -133,7 +133,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         jLabel10.setText("CARGO");
 
         try {
-            jFTextDataContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFTextDataContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -269,13 +269,28 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
         String nome = jTextNome.getText();
         String morada = jTextMorada.getText();
-        String bilhete = jTextBilhete.getText();
-        String phone = jTextPhone.getText();
-        char genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex()).toCharArray()[0];
-        BigDecimal salario = BigDecimal.valueOf(10000);
-        Funcionario funcionarioModel = new Funcionario(nome,morada,bilhete,phone,salario, genero);
-        boolean result = funcionarioModel.cadastrarFuncionario();
-        System.out.println(result);
+        String data_nascimento = jFTextNascimento.getText();
+        String data_contrato = jFTextDataContrato.getText();
+        String cargo = jTextCargo.getText();
+        String bi_funcionario = jTextBilhete.getText();
+        String telefone = jTextPhone.getText();
+        String funcao = jCmbBoxFuncao.getSelectedItem().toString();
+        String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
+        BigDecimal salario = BigDecimal.valueOf(Double.parseDouble(jTextSalario.getText()));
+        
+        Funcionario funcionarioModel = new Funcionario(
+                nome, bi_funcionario, 
+                data_contrato, 
+                data_nascimento, 
+                cargo, 
+                salario, 
+                genero, 
+                funcao, 
+                telefone, 
+                morada
+        );
+      boolean result = funcionarioModel.cadastrarFuncionario();
+        System.out.println("Funcionario cadastrado: " + result);
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private void jCmbBoxFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxFuncaoActionPerformed

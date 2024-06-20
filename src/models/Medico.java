@@ -10,11 +10,21 @@ public class Medico extends Funcionario {
         private String medico_especialidade;
         private String horarioTrabalho;
 
-    public Medico(String nome_funcionario, String bi_funcionario, String data_Contratacao, String cargo, BigDecimal salario, char genero) {
-        super(nome_funcionario, bi_funcionario, data_Contratacao, cargo, salario, genero);
+    public Medico(
+            String nome_funcionario, 
+            String bi_funcionario, 
+            String data_Contratacao, 
+            String data_nascimento, 
+            String cargo, 
+            BigDecimal salario, 
+            String genero, 
+            String funcao, 
+            String telefone, 
+            String morada
+    ) {
+        super(nome_funcionario, bi_funcionario, data_Contratacao, data_nascimento, cargo, salario, genero, funcao, telefone, morada);
     }
 
-    
     public boolean cadastrarMedico(int crm,String especialidade,LocalTime horario_trabalho){
         return true;
     }
