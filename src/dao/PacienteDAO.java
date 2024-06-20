@@ -96,7 +96,6 @@ public class PacienteDAO implements IDao {
                 smt.setInt(1, model.getPaciente_id());
                 smt.executeUpdate();
                 smt.close();
-                con.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao  Deletar");
                 throw new RuntimeException(ex.getMessage());
