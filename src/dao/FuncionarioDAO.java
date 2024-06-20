@@ -51,7 +51,7 @@ public class FuncionarioDAO implements IDao {
             while (resultado.next()) {
                 int id = resultado.getInt("id");
                 String nome = resultado.getString("nome");
-                String bi =resultado.getString("bi");
+                String bi = resultado.getString("bi");
                 String dataContrato = resultado.getString("data_contratacao");
                 String cargo = resultado.getString("cargo");
                 BigDecimal salario = resultado.getBigDecimal("salario");

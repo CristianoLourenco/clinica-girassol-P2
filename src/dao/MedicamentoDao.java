@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class MedicamentoDao implements IDao {
+
     private final Connection con;
     private final Medicamento med;
 

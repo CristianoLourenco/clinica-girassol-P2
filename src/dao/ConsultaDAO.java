@@ -7,35 +7,34 @@ import controllers.Conectar;
 import java.sql.Connection;
 import controllers.IDao;
 
-public class ConsultaDAO implements IDao{
-   private final Connection con;
-   private final Consulta consulta;
+public class ConsultaDAO implements IDao {
+
+    private final Connection con;
+    private final Consulta consulta;
 
     public ConsultaDAO(Consulta consultaModel) {
         con = Conectar.getConectar();
         this.consulta = consultaModel;
     }
-   
 
     @Override
     public boolean insertDaoObject() {
-       String sql = "INSERT INTO consulta (paciente_id,especialidade_id,medico_id,data_consulta,status)";
-       try(PreparedStatement smt = con.prepareStatement(sql)){
-           smt.setString(1, consulta.getPaciente_id());
-           smt.setString(2, consulta.getEspecialidade());
-           smt.setString(3,consulta.getMedico_id());
-           smt.setString(4, consulta.getDataConsulta().toString());
-           smt.setBoolean(5,consulta.getStatus());
-           smt.executeUpdate();
-           JOptionPane.showMessageDialog(null,"Consulta agendada com sucesso");
-           smt.close();
-       }catch(Exception ex){
-           JOptionPane.showMessageDialog(null,"Falha na Operação: "+ex.getMessage());
-           throw new RuntimeException(ex.getMessage());
-       }
-       return true;
+        String sql = "INSERT INTO consulta (paciente_id,especialidade_id,medico_id,data_consulta,status)";
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
+            smt.setString(1, consulta.getPaciente_id());
+            smt.setString(2, consulta.getEspecialidade());
+            smt.setString(3, consulta.getMedico_id());
+            smt.setString(4, consulta.getDataConsulta().toString());
+            smt.setBoolean(5, consulta.getStatus());
+            smt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Consulta agendada com sucesso");
+            smt.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Falha na Operação: " + ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
+        }
+        return true;
     }
- 
 
     @Override
     public boolean updateDaoObject() {
