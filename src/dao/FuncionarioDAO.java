@@ -2,97 +2,133 @@ package dao;
 
 import models.Funcionario;
 import controllers.Conectar;
+import controllers.IDao;
+import java.awt.HeadlessException;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.List;
-import java.sql.ResultSet; 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Date;
 
-public class FuncionarioDAO {
-    
-        public void cadastrarFuncionario (Funcionario f){
-                  Connection con = Conectar.getConectar();
-                  
-                  String sql = " INSERT INTO funcionario (nome,bi,data_contratacao,cargo,salario) VALUES (?, ?, ?, ?, ?, ?)";
-                  try {
-                          PreparedStatement smt = con.prepareStatement(sql) ;
-                          smt.setString(1,f.getNome_funcionario());
-                          smt.setString(2,f.getBi_funcionario());
-                          smt.setString(3,f.getData_Contratacao().toString());
-                          smt.setString(4,f.getCargo());
-                          smt.setString(5,f.getSalario().toString());
-                          smt.executeUpdate();
-                          smt.close();
-                          smt.close();
-                          JOptionPane.showMessageDialog(null, "Funcionario Cadastrado com sucesso!");
-                  }catch (Exception ex){
-                      JOptionPane.showMessageDialog(null, "Erro ao cadastrar Funcionario");
-                  }
-        }
+public class FuncionarioDAO implements IDao {
+
+    private final Connection con;
+    private final Funcionario model;
+
+    public FuncionarioDAO(Funcionario funcionarioModel) {
+        this.model = funcionarioModel;
+        this.con = Conectar.getConectar();
+    }
+
+    @Override
+    public boolean insertDaoObject() {
         
-        public void actualizarFuncionario (Funcionario f){
-            Connection con = Conectar.getConectar();
-            
-            String sql = "UPDATE funcionario SET nome = ?, bi = ?,data_contratacao = ?,cargo = ?,salario = ? WHERE id = ? ";
-            try{
-                PreparedStatement smt = con.prepareStatement(sql);
-                 smt.setString(1,f.getNome_funcionario());
-                 smt.setString(2,f.getBi_funcionario());
-                 smt.setString(3,f.getData_Contratacao());
-                 smt.setString(4,f.getCargo());
-                 smt.setString(5,f.getSalario().toString());
-                 smt.setInt(6, f.getId_funcionario());
-                 smt.executeUpdate(); 
-                 smt.close();
-                 con.close();
-            }catch(Exception ex){
-                 JOptionPane.showMessageDialog(null, "Erro ao Cadastrar");
+        String sql = "INSERT INTO `funcionario` (`id`,`nome`,`bi`,`morada`,`cargo`,`genero`,`funcao`,`telefone`,`salario`,`data_nascimento`,`data_contrato`) VALUES (NULL,?,?,?,?,?,?,?,?,?,?)";
+        Date data_nascimento = Date.valueOf(model.getDataNascimento());
+        Date data_contratato = Date.valueOf(model.getData_Contratacao()); 
+
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
+            smt.setString(1, model.getNome_funcionario());
+            smt.setString(2, model.getBi_funcionario());
+            smt.setString(3, model.getMorada());
+            smt.setString(4, model.getCargo());
+            smt.setString(5, model.getGenero());
+            smt.setString(6, model.getFuncao());
+            smt.setString(7, model.getTelefone());
+            smt.setObject(8, model.getSalario());
+            smt.setDate(9, data_nascimento);
+            smt.setDate(10, data_contratato);
+            smt.executeUpdate();
+            smt.close();
+            JOptionPane.showMessageDialog(null, "Funcionario Cadastrado com sucesso!");
+        } catch (HeadlessException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Funcionario");
+            throw new RuntimeException(ex.getMessage());
+        }
+        return true;
+    }
+
+    @Override
+    public Object listDaoObject() {
+        List<Funcionario> listaFuncionarios = new ArrayList<>();
+        String sql = "SELECT * FROM funcionario ORDER BY nome";
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
+            ResultSet resultado = smt.executeQuery();
+            while (resultado.next()) {
+                int id = resultado.getInt("id");
+                String nome = resultado.getString("nome");
+                String bi = resultado.getString("bi");
+                String morada = resultado.getString("morada");
+                String cargo = resultado.getString("cargo");
+                String genero = resultado.getString("genero");
+                BigDecimal salario = resultado.getBigDecimal("salario");
+                String telefone = resultado.getString("telefone");
+                String funcao = resultado.getString("funcao");
+                String data_contrato = resultado.getString("data_contrato");
+                String data_nascimento = resultado.getString("data_nascimento");
+                Funcionario funcionarioModel = new Funcionario(
+                        nome, 
+                        bi,
+                        data_contrato, 
+                        data_nascimento, 
+                        cargo, 
+                        salario, 
+                        genero, 
+                        funcao,
+                        telefone, 
+                        morada
+                );
+                funcionarioModel.setId_funcionario(id);
+                listaFuncionarios.add(funcionarioModel);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar Registro" );
+            throw new RuntimeException(ex.getMessage());
+        }
+        return listaFuncionarios;
+    }
+
+    @Override
+    public boolean updateDaoObject() {
+        String sql = "UPDATE funcionario SET nome = ?, bi = ?,data_contratacao = ?,cargo = ?,salario = ? WHERE id = ? ";
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
+            smt.setString(1, model.getNome_funcionario());
+            smt.setString(2, model.getBi_funcionario());
+            smt.setString(3, model.getData_Contratacao());
+            smt.setString(4, model.getCargo());
+            smt.setString(5, model.getSalario().toString());
+            smt.setInt(6, model.getId_funcionario());
+            smt.executeUpdate();
+            smt.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar " );
+            throw new RuntimeException(ex.getMessage());
+        }
+        return true;
+    }
+
+    @Override
+    public boolean deleteDaoObject() {
+        String sql = "DELETE FROM funcionario WHERE id = ?";
+        String nome = model.getNome_funcionario();
+        int id = model.getId_funcionario();
+        int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Funcionario " + nome, "Exclusao", JOptionPane.YES_NO_OPTION);
+        if (opcao == JOptionPane.YES_OPTION) {
+            try (PreparedStatement smt = con.prepareStatement(sql)) {
+                smt.setInt(1, id);
+                smt.executeUpdate();
+                smt.close();
+                JOptionPane.showMessageDialog(null, "Excluido Com Sucesso");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao excluir o Funcionario" );
+                throw new RuntimeException(ex.getMessage());
             }
         }
-        
-        public void excluirFuncionario (Funcionario f){
-                Connection con = Conectar.getConectar();
-                
-                String sql = "DELETE FROM funcionario WHERE id = ?";
-                int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Funcionario "+f.getNome_funcionario(),"Exclusao",JOptionPane.YES_NO_OPTION);
-                if (opcao == JOptionPane.YES_OPTION){
-                try{
-                    PreparedStatement smt = con.prepareStatement(sql);
-                        smt.setInt(1, f.getId_funcionario());
-                        smt.executeUpdate();
-                        smt.close();
-                        con.close();
-                        JOptionPane.showMessageDialog(null, "Excluido Com Sucesso");
-                }catch(Exception ex){
-                         JOptionPane.showMessageDialog(null, "Erro ao excluir o Funcionario");
-                          }
-                }
-        }
-                
-        public List<Funcionario> listarFuncionarios(){
-                    Connection con = Conectar.getConectar();
-                   List<Funcionario> listaFuncionarios = new ArrayList<>();
-                   String sql = "SELECT * FROM funcionario ORDER BY nome"; 
-                   try{
-                       PreparedStatement smt = con.prepareStatement(sql);
-                         ResultSet resultado = smt.executeQuery();
-                         while (resultado.next()){
-                             Funcionario f = new  Funcionario();
-                             f.setId_funcionario(resultado.getInt("id"));
-                             f.setNome_funcionario(resultado.getString("nome"));
-                             f.setBi_funcionario(resultado.getString("bi"));
-                             f.setData_Contratacao(resultado.getString("data_contratacao"));
-                             f.setCargo(resultado.getString("cargo"));
-                             f.setSalario(resultado.getBigDecimal("salario"));
-                             listaFuncionarios.add(f);
-                         }
-                   }catch(Exception exc){
-                       JOptionPane.showMessageDialog(null,"Erro ao buscar Registro");
-                   }
-                   
-                   return listaFuncionarios;
-                }
-        
-        }
+        return true;
+    }
 
+}

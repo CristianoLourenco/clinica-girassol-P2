@@ -4,6 +4,8 @@
  */
 package view;
 
+import models.Especialidade;
+
  
 public class CadastroEspecialidade extends javax.swing.JFrame {
 
@@ -130,7 +132,9 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
         String nome = jTextNomeEspecialidade.getText();
         String descricao = jTextDescricao.getText();
-   //     Paciente p = new Paciente(nome,morada,bilhete,phone, genero);
+        Especialidade especialidadeModel = new Especialidade(nome, descricao);
+        boolean result  = especialidadeModel.cadastrarEspecialidade();
+        System.out.println("Especialidade cadastrada: "+ result);
      //   System.out.println(p.cadastrarPaciente());
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
@@ -163,10 +167,8 @@ public class CadastroEspecialidade extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastroEspecialidade().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroEspecialidade().setVisible(true);
         });
     }
 
