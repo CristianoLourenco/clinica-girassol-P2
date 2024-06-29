@@ -34,7 +34,7 @@ public class ConsultaDAO {
    }
    
    public static boolean actualizarConsulta(Consulta c){
-       String sql = "UPDATE consulta SET ";
+       String sql = "UPDATE consulta SET (medico_id,data_consulta,status)";
        return  false;
                //Por terminar...
    }

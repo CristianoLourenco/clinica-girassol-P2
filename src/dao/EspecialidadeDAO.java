@@ -4,7 +4,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import models.Especialidade;
 import controllers.Conectar;
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.util.List;
 import java.util.ArrayList;
 
