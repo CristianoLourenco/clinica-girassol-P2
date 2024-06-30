@@ -3,13 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
- 
- 
-public class Home extends javax.swing.JFrame { 
+
+import dao.PacienteDAO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import models.Paciente;
+
+public class Home extends javax.swing.JFrame {
+
     public Home() {
         initComponents();
+        initializePatients();
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,7 +32,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTablePaciente = new javax.swing.JTable();
         jBtnCadastrarPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -115,21 +122,26 @@ public class Home extends javax.swing.JFrame {
 
         jTextField3.setText("Pesquisar");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Descrição", "Paciente", "Nº Bilhete", "Telefone ", "Médico", "Especialidade"
+                "Id", "Nome", "Nº Bilhete", "Telefone ", "Nascido aos", "Genero", "Morada"
             }
-        ));
-        jTable3.setShowGrid(false);
-        jTable3.getTableHeader().setResizingAllowed(false);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTablePaciente.setShowGrid(false);
+        jTablePaciente.getTableHeader().setResizingAllowed(false);
+        jTablePaciente.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(jTablePaciente);
 
         jBtnCadastrarPaciente.setText("Cadastrar Paceinte");
         jBtnCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -294,26 +306,38 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initializePatients() {
+        PacienteDAO dao = new PacienteDAO(null);
+        List<Paciente> lista = (ArrayList<Paciente>) dao.listDaoObject(); 
+        for (int i = 0; i < lista.size(); i++) {
+            tablePacientModel().addRow(lista.get(i).listPropieties());
+        }
+    }
+
+    private DefaultTableModel tablePacientModel() {
+        return (DefaultTableModel) jTablePaciente.getModel();
+    }
+
     private void lbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPacienteMouseClicked
 
     }//GEN-LAST:event_lbPacienteMouseClicked
 
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
-        java.awt.EventQueue.invokeLater(()->{
+        java.awt.EventQueue.invokeLater(() -> {
             new CadastrarFuncionario().setVisible(true);
         });
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private void jBtnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarPacienteActionPerformed
-        java.awt.EventQueue.invokeLater(()->{
+        java.awt.EventQueue.invokeLater(() -> {
             new CadastroPaciente().setVisible(true);
         });
     }//GEN-LAST:event_jBtnCadastrarPacienteActionPerformed
 
     private void jBtnAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsultaActionPerformed
-            java.awt.EventQueue.invokeLater(()->{
-                new CadastroConsulta().setVisible(true);
-            });        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroConsulta().setVisible(true);
+        });        // TODO add your handling code here:
     }//GEN-LAST:event_jBtnAgendarConsultaActionPerformed
 
     /**
@@ -368,7 +392,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTablePaciente;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

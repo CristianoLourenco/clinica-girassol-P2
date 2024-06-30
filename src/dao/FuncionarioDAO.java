@@ -13,6 +13,7 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
+import models.FuncaoEnum;
 
 public class FuncionarioDAO implements IDao {
 
@@ -37,7 +38,7 @@ public class FuncionarioDAO implements IDao {
             smt.setString(3, model.getMorada());
             smt.setString(4, model.getCargo());
             smt.setString(5, model.getGenero());
-            smt.setString(6, model.getFuncao());
+            smt.setString(6, model.getFuncao().name());
             smt.setString(7, model.getTelefone());
             smt.setObject(8, model.getSalario());
             smt.setDate(9, data_nascimento);
@@ -67,7 +68,7 @@ public class FuncionarioDAO implements IDao {
                 String genero = resultado.getString("genero");
                 BigDecimal salario = resultado.getBigDecimal("salario");
                 String telefone = resultado.getString("telefone");
-                String funcao = resultado.getString("funcao");
+                FuncaoEnum funcao = FuncaoEnum.valueOf(resultado.getString("funcao"));
                 String data_contrato = resultado.getString("data_contrato");
                 String data_nascimento = resultado.getString("data_nascimento");
                 Funcionario funcionarioModel = new Funcionario(

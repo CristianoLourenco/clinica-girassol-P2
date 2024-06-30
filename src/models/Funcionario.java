@@ -2,31 +2,32 @@ package models;
 
 import java.math.BigDecimal;
 import dao.FuncionarioDAO;
+import java.util.ArrayList;
 
 public class Funcionario {
 
-    private int id_funcionario;
-    private String nome_funcionario;
-    private String bi_funcionario;
-    private String data_Contratacao;
-    private final String data_nascimento;
-    private String cargo;
-    private String morada;
-    private final String genero;
-    private final String funcao;
-    private final String telefone;
-    private BigDecimal salario;
+    protected int id_funcionario;
+    protected String nome_funcionario;
+    protected String bi_funcionario;
+    protected String data_Contratacao;
+    protected String data_nascimento;
+    protected String cargo;
+    protected String morada;
+    protected String genero;
+    private FuncaoEnum funcao;
+    protected String telefone;
+    protected BigDecimal salario;
 
     public Funcionario(
             String nome_funcionario,
-            String bi_funcionario, 
-            String data_contrato, 
-            String data_nascimento, 
-            String cargo, 
-            BigDecimal salario, 
+            String bi_funcionario,
+            String data_contrato,
+            String data_nascimento,
+            String cargo,
+            BigDecimal salario,
             String genero,
-            String funcao,
-            String telefone ,
+            FuncaoEnum funcao,
+            String telefone,
             String morada
     ) {
         this.nome_funcionario = nome_funcionario;
@@ -41,12 +42,16 @@ public class Funcionario {
         this.data_nascimento = data_nascimento;
     }
 
+    public Funcionario() {}
+    
     public String getMorada() {
         return morada;
     }
-    public String getFuncao() {
+
+    public FuncaoEnum getFuncao() {
         return funcao;
     }
+
     public String getTelefone() {
         return telefone;
     }
@@ -68,6 +73,17 @@ public class Funcionario {
          
     public int getId_funcionario() {
         return id_funcionario;
+    }
+    
+    protected int getId_funcionario(String name) {
+        FuncionarioDAO dao =  new FuncionarioDAO(this);
+        ArrayList<Funcionario> lista = (ArrayList<Funcionario>)dao.listDaoObject();
+        for (Funcionario model :lista) {
+            if(model.nome_funcionario == nome_funcionario){
+                return model.id_funcionario;
+            } 
+        }
+        return -1;
     }
 
     public void setId_funcionario(int id_funcionario) {

@@ -111,7 +111,7 @@
                               <Component id="jCmbBoxFuncao" alignment="0" max="32767" attributes="0"/>
                               <Component id="jCmbBoxEspecialidade" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -200,7 +200,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="458" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -309,6 +309,7 @@
                 <StringItem index="2" value="Atendente"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCmbBoxFuncaoActionPerformed"/>
