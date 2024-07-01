@@ -28,7 +28,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         initComponents();
         getEspecialidades();
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -298,7 +298,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jCmbBoxGeneroActionPerformed
 
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
-        String nome = jTextNome.getText();
+     String nome = jTextNome.getText();
         String morada = jTextMorada.getText();
         String data_nascimento = jFTextNascimento.getText();
         String data_contrato = jFTextDataContrato.getText();
@@ -309,11 +309,11 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         String genero = jCmbBoxGenero.getItemAt(jCmbBoxGenero.getSelectedIndex());
         BigDecimal salario = BigDecimal.valueOf(Double.parseDouble(jTextSalario.getText()));
         int especialidade_id = getEspecialidadeId();
-        
-        Funcionario funcionarioModel;
-        
-        Medico medicoModel = new Medico(
-                Integer.parseInt(jTextNumeroDaOrdem.getText()), 
+
+       // Funcionario funcionarioModel;
+
+       Medico medicoModel = new Medico(
+                Integer.parseInt(jTextNumeroDaOrdem.getText()),
                 nome, bi_funcionario,
                 data_contrato,
                 data_nascimento,
@@ -325,20 +325,21 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                 morada,
                 especialidade_id
         );
-        
-        funcionarioModel = medicoModel;
-        boolean resultMedico = medicoModel.cadastrarFuncionario();
-        System.out.println("Medico cadastrado: " + resultMedico);
+ 
+      boolean result  = medicoModel.cadastrarFuncionario();
+  
+        System.out.println("Medico cadastrado: " + result);
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
-     private int getEspecialidadeId(){
-          for (Especialidade especialidade : especialidadeList) {
-             if(especialidade.getNomeEspecialidade() == jCmbBoxEspecialidade.getName())
-                 return especialidade.getEspecialidade_id();
-         }
-          return -1;
-     }
-     
+    private int getEspecialidadeId() {
+        for (Especialidade especialidade : especialidadeList) {
+            if (jCmbBoxEspecialidade.getItemAt(jCmbBoxEspecialidade.getSelectedIndex()) == especialidade.getNomeEspecialidade()) {
+                return especialidade.getEspecialidade_id();
+            }
+        }
+        return -1;
+    }
+
     private void jCmbBoxFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbBoxFuncaoActionPerformed
         jCmbBoxEspecialidade.removeAllItems();
         if (jCmbBoxFuncao.getSelectedIndex() != 0) {
@@ -355,7 +356,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
             especialidadeList.add(dao.listDaoObject().get(i));
         }
     }
- 
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

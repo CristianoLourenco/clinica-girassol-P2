@@ -1,4 +1,5 @@
 package models;
+
 import dao.MedicoDAO;
 import java.math.BigDecimal;
 import java.time.LocalTime;
@@ -6,40 +7,42 @@ import java.time.LocalTime;
 public class Medico extends Funcionario {
 
     private int numeroOrdem;
-   // private String medico_especialidade;
+    // private String medico_especialidade;
     private String horarioTrabalho;
     private int especialidade_id;
 
     public Medico(
-            int numeroOrdem, 
-            String nome_funcionario, 
-            String bi_funcionario, 
-            String data_contrato, 
-            String data_nascimento, 
-            String cargo, 
-            BigDecimal salario, 
-            String genero, 
-            FuncaoEnum funcao, 
-            String telefone, 
+            int numeroOrdem,
+            String nome_funcionario,
+            String bi_funcionario,
+            String data_contrato,
+            String data_nascimento,
+            String cargo,
+            BigDecimal salario,
+            String genero,
+            FuncaoEnum funcao,
+            String telefone,
             String morada,
             int especialidade
     ) {
-        super(
-                nome_funcionario, 
-                bi_funcionario, 
-                data_contrato, 
-                data_nascimento, 
-                cargo, 
-                salario,
-                genero, 
-                funcao, 
-                telefone, 
-                morada
-        );
+        this.nome_funcionario = nome_funcionario;
+        this.bi_funcionario = bi_funcionario;
+        this.data_Contratacao = data_contrato;
+        this.data_nascimento = data_nascimento;
+        this.cargo = cargo;
+        this.salario = salario;
+        this.genero = genero;
+        this.funcao = funcao;
+        this.telefone = telefone;
+        this.morada = morada;
         this.especialidade_id = especialidade;
         this.numeroOrdem = numeroOrdem;
-      //  this.medico_especialidade = medico_especialidade;
-        this.horarioTrabalho = horarioTrabalho;
+        //TODO: configurar o horario do medico
+        //  this.horarioTrabalho = horarioTrabalho;
+    }
+
+    public Medico() {
+
     }
 
     @Override
@@ -47,6 +50,7 @@ public class Medico extends Funcionario {
         super.cadastrarFuncionario();
         int id = super.getId_funcionario(nome_funcionario);
         setId_funcionario(id);
+        System.out.println(id);
         MedicoDAO dao = new MedicoDAO(this);
         return dao.insertDaoObject();
     }
@@ -58,30 +62,19 @@ public class Medico extends Funcionario {
     public void setNumeroOrdem(int numeroOrdem) {
         this.numeroOrdem = numeroOrdem;
     }
-    public void setEpecialidadeId(int id){
+
+    public void setEpecialidadeId(int id) {
         this.especialidade_id = id;
     }
-    public int getEspecialidadeId(){
+
+    public int getEspecialidadeId() {
         return this.especialidade_id;
     }
-/*    public String getMedico_especialidade() {
-        return medico_especialidade;
-    }
 
-    public void setMedico_especialidade(String medico_especialidade) {
-        this.medico_especialidade = medico_especialidade;
-    }
-*/
-    /**
-     * @return the horarioTrabalho
-     */
     public String getHorarioTrabalho() {
         return horarioTrabalho;
     }
 
-    /**
-     * @param horarioTrabalho the horarioTrabalho to set
-     */
     public void setHorarioTrabalho(String horarioTrabalho) {
         this.horarioTrabalho = horarioTrabalho;
     }

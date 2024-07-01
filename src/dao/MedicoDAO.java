@@ -23,20 +23,22 @@ public class MedicoDAO implements IDao {
 
     @Override
     public boolean insertDaoObject() {
-        String sql = "INSERT INTO `medico` (`numeroDaOrdem`, `especialidadeId`, `funcionarioId`) VALUES (?,?,?)";
+        String sql = "INSERT INTO `medico` (`numero_ordem`, `especialidade_id`, `funcionario_id`) VALUES (?,?,?)";
+        
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setInt(1, model.getNumeroOrdem());
-            smt.setInt(2, model.getEspecialidadeId());
-            smt.setInt(3, model.getId_funcionario());
-            smt.executeUpdate();
+            smt.setInt(2, model.getEspecialidadeId());            
+            smt.setInt(3, model.getId_funcionario()); 
+            smt.executeUpdate(); 
             JOptionPane.showMessageDialog(null, "Cadastrado com  sucesso");
-            smt.close();
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar medico");
+            System.err.print(ex);
             throw new RuntimeException(ex.getMessage());
         }
         return true;
     }
+    
 
     @Override
     public Object listDaoObject() {

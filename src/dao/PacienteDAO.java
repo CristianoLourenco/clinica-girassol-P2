@@ -42,7 +42,7 @@ public class PacienteDAO implements IDao {
     @Override
     public  Object listDaoObject() {
         List<Paciente> lista = new ArrayList<>();
-        String sql = "SELECT * FROM paciente ORDER BY nome";
+        String sql = "SELECT * FROM paciente ORDER BY id";
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {

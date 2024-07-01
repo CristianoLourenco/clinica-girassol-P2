@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Date;
 import models.FuncaoEnum;
+import models.Medico;
 
 public class FuncionarioDAO implements IDao {
 
@@ -27,10 +28,10 @@ public class FuncionarioDAO implements IDao {
 
     @Override
     public boolean insertDaoObject() {
-        
+
         String sql = "INSERT INTO `funcionario` (`id`,`nome`,`bi`,`morada`,`cargo`,`genero`,`funcao`,`telefone`,`salario`,`data_nascimento`,`data_contrato`) VALUES (NULL,?,?,?,?,?,?,?,?,?,?)";
         Date data_nascimento = Date.valueOf(model.getDataNascimento());
-        Date data_contratato = Date.valueOf(model.getData_Contratacao()); 
+        Date data_contratato = Date.valueOf(model.getData_Contratacao());
 
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, model.getNome_funcionario());
@@ -53,41 +54,58 @@ public class FuncionarioDAO implements IDao {
         return true;
     }
 
+    private Object setTipoFuncionario(ResultSet result) {
+        final String nome, bi, morada, cargo, genero, data_contrato, data_nascimento;
+        final BigDecimal salario;
+        final int id, id_especialidade;
+        Object funcionario;
+        try {
+
+            nome = result.getString("nome");
+            bi = result.getString("bi");
+            morada = result.getString("morada");
+            cargo = result.getString("cargo");
+            genero = result.getString("genero");
+            salario = result.getBigDecimal("salario");
+            String telefone = result.getString("telefone");
+            FuncaoEnum funcao = FuncaoEnum.valueOf(result.getString("funcao"));
+            data_contrato = result.getString("data_contrato");
+            data_nascimento = result.getString("data_nascimento");
+            id_especialidade = 0;
+
+            id = result.getInt("id");
+            funcionario = new Funcionario(
+                    id,
+                    nome,
+                    bi,
+                    data_contrato,
+                    data_nascimento,
+                    cargo,
+                    morada,
+                    genero,
+                    funcao,
+                    telefone,
+                    salario
+            );
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex.getMessage());
+        }
+       return funcionario;
+    }
+
     @Override
     public Object listDaoObject() {
-        List<Funcionario> listaFuncionarios = new ArrayList<>();
-        String sql = "SELECT * FROM funcionario ORDER BY nome";
+        List<Object> listaFuncionarios = new ArrayList<>();
+        String sql = "SELECT * FROM funcionario";
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
-                int id = resultado.getInt("id");
-                String nome = resultado.getString("nome");
-                String bi = resultado.getString("bi");
-                String morada = resultado.getString("morada");
-                String cargo = resultado.getString("cargo");
-                String genero = resultado.getString("genero");
-                BigDecimal salario = resultado.getBigDecimal("salario");
-                String telefone = resultado.getString("telefone");
-                FuncaoEnum funcao = FuncaoEnum.valueOf(resultado.getString("funcao"));
-                String data_contrato = resultado.getString("data_contrato");
-                String data_nascimento = resultado.getString("data_nascimento");
-                Funcionario funcionarioModel = new Funcionario(
-                        nome, 
-                        bi,
-                        data_contrato, 
-                        data_nascimento, 
-                        cargo, 
-                        salario, 
-                        genero, 
-                        funcao,
-                        telefone, 
-                        morada
-                );
-                funcionarioModel.setId_funcionario(id);
-                listaFuncionarios.add(funcionarioModel);
+                final Object funcionario = setTipoFuncionario(resultado);
+                listaFuncionarios.add(funcionario);
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao buscar Registro" );
+            JOptionPane.showMessageDialog(null, "Erro ao buscar Registro");
             throw new RuntimeException(ex.getMessage());
         }
         return listaFuncionarios;
@@ -106,7 +124,7 @@ public class FuncionarioDAO implements IDao {
             smt.executeUpdate();
             smt.close();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar " );
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar ");
             throw new RuntimeException(ex.getMessage());
         }
         return true;
@@ -125,7 +143,7 @@ public class FuncionarioDAO implements IDao {
                 smt.close();
                 JOptionPane.showMessageDialog(null, "Excluido Com Sucesso");
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao excluir o Funcionario" );
+                JOptionPane.showMessageDialog(null, "Erro ao excluir o Funcionario");
                 throw new RuntimeException(ex.getMessage());
             }
         }

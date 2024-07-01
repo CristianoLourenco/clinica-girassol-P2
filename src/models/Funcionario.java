@@ -14,11 +14,27 @@ public class Funcionario {
     protected String cargo;
     protected String morada;
     protected String genero;
-    private FuncaoEnum funcao;
+    protected FuncaoEnum funcao;
     protected String telefone;
     protected BigDecimal salario;
 
-    public Funcionario(
+    public Funcionario(int id_funcionario, String nome_funcionario, String bi_funcionario, String data_Contratacao, String data_nascimento, String cargo, String morada, String genero, FuncaoEnum funcao, String telefone, BigDecimal salario) {
+        this.id_funcionario = id_funcionario;
+        this.nome_funcionario = nome_funcionario;
+        this.bi_funcionario = bi_funcionario;
+        this.data_Contratacao = data_Contratacao;
+        this.data_nascimento = data_nascimento;
+        this.cargo = cargo;
+        this.morada = morada;
+        this.genero = genero;
+        this.funcao = funcao;
+        this.telefone = telefone;
+        this.salario = salario;
+    }
+    
+
+    
+ /*  public Funcionario(
             String nome_funcionario,
             String bi_funcionario,
             String data_contrato,
@@ -40,7 +56,7 @@ public class Funcionario {
         this.genero = genero;
         this.morada = morada;
         this.data_nascimento = data_nascimento;
-    }
+    }*/
 
     public Funcionario() {}
     
@@ -69,8 +85,6 @@ public class Funcionario {
         return dao.insertDaoObject();
     }
 
-    ;
-         
     public int getId_funcionario() {
         return id_funcionario;
     }
@@ -79,7 +93,7 @@ public class Funcionario {
         FuncionarioDAO dao =  new FuncionarioDAO(this);
         ArrayList<Funcionario> lista = (ArrayList<Funcionario>)dao.listDaoObject();
         for (Funcionario model :lista) {
-            if(model.nome_funcionario == nome_funcionario){
+            if(model.nome_funcionario.matches(name)){
                 return model.id_funcionario;
             } 
         }
