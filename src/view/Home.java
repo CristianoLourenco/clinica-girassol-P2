@@ -3,13 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
- 
- 
-public class Home extends javax.swing.JFrame { 
+
+import dao.PacienteDAO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import models.Paciente;
+
+public class Home extends javax.swing.JFrame {
+
     public Home() {
         initComponents();
+        initializePatients();
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,7 +32,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTablePaciente = new javax.swing.JTable();
         jBtnCadastrarPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -89,7 +96,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(lbPaciente)
                     .addComponent(lbFuncionario)
                     .addComponent(lbConsulta))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         MenusPanelLayout.setVerticalGroup(
             MenusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,23 +126,32 @@ public class Home extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 12)); // NOI18N
         jTextField3.setText("Pesquisar");
 
+<<<<<<< HEAD
         jTable3.setFont(new java.awt.Font("JetBrains Mono NL ExtraBold", 0, 10)); // NOI18N
         jTable3.setForeground(new java.awt.Color(80, 97, 117));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
+=======
+        jTablePaciente.setModel(new javax.swing.table.DefaultTableModel(
+>>>>>>> f95986703361280c128a4689360aeb19a540af69
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Descrição", "Paciente", "Nº Bilhete", "Telefone ", "Médico", "Especialidade"
+                "Id", "Nome", "Nº Bilhete", "Telefone ", "Nascido aos", "Genero", "Morada"
             }
-        ));
-        jTable3.setShowGrid(false);
-        jTable3.getTableHeader().setResizingAllowed(false);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTablePaciente.setShowGrid(false);
+        jTablePaciente.getTableHeader().setResizingAllowed(false);
+        jTablePaciente.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(jTablePaciente);
 
 <<<<<<< HEAD
         jBtnAgendarConsulta2.setBackground(new java.awt.Color(80, 97, 117));
@@ -159,6 +175,13 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+>>>>>>> f95986703361280c128a4689360aeb19a540af69
             .addGroup(jPanel1Layout.createSequentialGroup()
 <<<<<<< HEAD
                 .addContainerGap(26, Short.MAX_VALUE)
@@ -207,19 +230,40 @@ public class Home extends javax.swing.JFrame {
         jTable2.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 10)); // NOI18N
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Descrição", "Paciente", "Nº Bilhete", "Telefone ", "Médico", "Especialidade"
+                "ID", "Nome", "Nº Bilhete", "Telefone", "Morada", "Genero", "Nascido aos", "Cargo", "Função", "Salário", "Contratado aos"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable2.setColumnSelectionAllowed(true);
         jTable2.setShowGrid(false);
         jTable2.getTableHeader().setResizingAllowed(false);
         jTable2.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable2);
+        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setResizable(false);
+            jTable2.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jTable2.getColumnModel().getColumn(1).setResizable(false);
+            jTable2.getColumnModel().getColumn(2).setResizable(false);
+            jTable2.getColumnModel().getColumn(3).setResizable(false);
+            jTable2.getColumnModel().getColumn(4).setResizable(false);
+            jTable2.getColumnModel().getColumn(5).setResizable(false);
+            jTable2.getColumnModel().getColumn(6).setResizable(false);
+            jTable2.getColumnModel().getColumn(7).setResizable(false);
+            jTable2.getColumnModel().getColumn(8).setResizable(false);
+            jTable2.getColumnModel().getColumn(9).setResizable(false);
+            jTable2.getColumnModel().getColumn(10).setResizable(false);
+        }
 
         jTextField2.setBackground(new java.awt.Color(80, 97, 117));
         jTextField2.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 12)); // NOI18N
@@ -253,8 +297,17 @@ public class Home extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+=======
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> f95986703361280c128a4689360aeb19a540af69
                     .addGroup(jPanel2Layout.createSequentialGroup()
 <<<<<<< HEAD
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,6 +384,10 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+=======
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+>>>>>>> f95986703361280c128a4689360aeb19a540af69
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 16, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,31 +415,43 @@ public class Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consulta", jPanel3);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 710, 500));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 780, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initializePatients() {
+        PacienteDAO dao = new PacienteDAO(null);
+        List<Paciente> lista = (ArrayList<Paciente>) dao.listDaoObject(); 
+        for (int i = 0; i < lista.size(); i++) {
+            tablePacientModel().addRow(lista.get(i).listPropieties());
+        }
+    }
+
+    private DefaultTableModel tablePacientModel() {
+        return (DefaultTableModel) jTablePaciente.getModel();
+    }
 
     private void lbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPacienteMouseClicked
 
     }//GEN-LAST:event_lbPacienteMouseClicked
 
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
-        java.awt.EventQueue.invokeLater(()->{
+        java.awt.EventQueue.invokeLater(() -> {
             new CadastrarFuncionario().setVisible(true);
         });
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private void jBtnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarPacienteActionPerformed
-        java.awt.EventQueue.invokeLater(()->{
+        java.awt.EventQueue.invokeLater(() -> {
             new CadastroPaciente().setVisible(true);
         });
     }//GEN-LAST:event_jBtnCadastrarPacienteActionPerformed
 
     private void jBtnAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsultaActionPerformed
-            java.awt.EventQueue.invokeLater(()->{
-                new CadastroConsulta().setVisible(true);
-            });        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(() -> {
+            new CadastroConsulta().setVisible(true);
+        });        // TODO add your handling code here:
     }//GEN-LAST:event_jBtnAgendarConsultaActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -441,7 +510,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTablePaciente;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
