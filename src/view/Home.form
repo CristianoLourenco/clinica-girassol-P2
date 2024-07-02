@@ -184,6 +184,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                   <Group type="102" attributes="0">
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -199,6 +200,18 @@
                               </Group>
                               <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
                           </Group>
+=======
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel5" min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace pref="517" max="32767" attributes="0"/>
+                      <Component id="jTextField3" min="-2" pref="102" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jBtnCadastrarPaciente" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="593" max="-2" attributes="0"/>
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -213,9 +226,15 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="339" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBtnAgendarConsulta2" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+=======
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jBtnCadastrarPaciente" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
                   </Group>
               </Group>
             </DimensionLayout>
@@ -299,7 +318,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jBtnAgendarConsulta2">
+            <Component class="javax.swing.JButton" name="jBtnCadastrarPaciente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="75" green="61" red="50" type="rgb"/>
@@ -310,7 +329,7 @@
                 <Property name="text" type="java.lang.String" value="Cadastrar Paciente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAgendarConsulta2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCadastrarPacienteActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -344,6 +363,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                       <EmptySpace pref="17" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -354,6 +374,18 @@
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="jBtnAgendarConsulta1" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="676" max="-2" attributes="0"/>
+=======
+                      <Component id="jLabel4" min="-2" pref="91" max="-2" attributes="0"/>
+                      <EmptySpace pref="517" max="32767" attributes="0"/>
+                      <Component id="jTextField2" min="-2" pref="102" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBtnCadastrarFuncionario" min="-2" pref="157" max="-2" attributes="0"/>
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -369,9 +401,15 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="339" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jBtnAgendarConsulta1" min="-2" pref="31" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+=======
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jBtnCadastrarFuncionario" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
                   </Group>
               </Group>
             </DimensionLayout>
@@ -455,7 +493,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jBtnAgendarConsulta1">
+            <Component class="javax.swing.JButton" name="jBtnCadastrarFuncionario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="75" green="61" red="50" type="rgb"/>
@@ -466,7 +504,7 @@
                 <Property name="text" type="java.lang.String" value="Cadastrar Funcionario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAgendarConsulta1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnCadastrarFuncionarioActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -607,6 +645,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agendar consulta"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnAgendarConsultaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
               <Properties>

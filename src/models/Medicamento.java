@@ -1,4 +1,5 @@
 package models;
+import dao.MedicamentoDao;
 
 public class Medicamento {
         private int medicamentoId;
@@ -7,9 +8,16 @@ public class Medicamento {
         private String dataExpiracao;
         private String instrucao;
 
-        
-        public boolean cadastrarMedicamento (Medicamento medicamento){
-            return true;
+    public Medicamento(String nomeMedicamento, String dataFabrico, String dataExpiracao, String instrucao) {
+        this.nomeMedicamento = nomeMedicamento;
+        this.dataFabrico = dataFabrico;
+        this.dataExpiracao = dataExpiracao;
+        this.instrucao = instrucao;
+    }
+
+        public boolean cadastrarMedicamento (){
+            MedicamentoDao dao = new MedicamentoDao(this);
+            return dao.insertDaoObject();
         }
         
         public boolean expirado (Medicamento medicamento){

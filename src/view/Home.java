@@ -26,13 +26,13 @@ public class Home extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jBtnAgendarConsulta2 = new javax.swing.JButton();
+        jBtnCadastrarPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jTextField2 = new javax.swing.JTextField();
-        jBtnAgendarConsulta1 = new javax.swing.JButton();
+        jBtnCadastrarFuncionario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -137,12 +137,17 @@ public class Home extends javax.swing.JFrame {
         jTable3.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable3);
 
+<<<<<<< HEAD
         jBtnAgendarConsulta2.setBackground(new java.awt.Color(80, 97, 117));
         jBtnAgendarConsulta2.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 10)); // NOI18N
         jBtnAgendarConsulta2.setText("Cadastrar Paciente");
         jBtnAgendarConsulta2.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jBtnCadastrarPaciente.setText("Cadastrar Paceinte");
+        jBtnCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAgendarConsulta2ActionPerformed(evt);
+                jBtnCadastrarPacienteActionPerformed(evt);
             }
         });
 
@@ -155,6 +160,7 @@ public class Home extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -167,6 +173,13 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
+=======
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +189,15 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnAgendarConsulta2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 53, Short.MAX_VALUE))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 47, Short.MAX_VALUE))
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
         );
 
         jTabbedPane1.addTab("Pacientes", jPanel1);
@@ -211,12 +230,17 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jBtnAgendarConsulta1.setBackground(new java.awt.Color(80, 97, 117));
         jBtnAgendarConsulta1.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 10)); // NOI18N
         jBtnAgendarConsulta1.setText("Cadastrar Funcionario");
         jBtnAgendarConsulta1.addActionListener(new java.awt.event.ActionListener() {
+=======
+        jBtnCadastrarFuncionario.setText("Cadastrar Funcionario");
+        jBtnCadastrarFuncionario.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnAgendarConsulta1ActionPerformed(evt);
+                jBtnCadastrarFuncionarioActionPerformed(evt);
             }
         });
 
@@ -232,6 +256,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(494, 494, 494)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -239,6 +264,11 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jBtnAgendarConsulta1)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+=======
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBtnCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17))
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,9 +278,15 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBtnAgendarConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 53, Short.MAX_VALUE))
+=======
+                .addGap(18, 18, 18)
+                .addComponent(jBtnCadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 41, Short.MAX_VALUE))
+>>>>>>> 812aa588c771fa2f52f76cee26f81eaad1814d5c
         );
 
         jTabbedPane1.addTab("Funcionários", jPanel2);
@@ -277,6 +313,11 @@ public class Home extends javax.swing.JFrame {
         jBtnAgendarConsulta.setBackground(new java.awt.Color(80, 97, 117));
         jBtnAgendarConsulta.setFont(new java.awt.Font("JetBrains Mono NL ExtraBold", 0, 10)); // NOI18N
         jBtnAgendarConsulta.setText("Agendar consulta");
+        jBtnAgendarConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAgendarConsultaActionPerformed(evt);
+            }
+        });
 
         jTextField1.setBackground(new java.awt.Color(80, 97, 117));
         jTextField1.setFont(new java.awt.Font("JetBrains Mono NL ExtraBold", 0, 12)); // NOI18N
@@ -326,18 +367,23 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_lbPacienteMouseClicked
 
-    private void jBtnAgendarConsulta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsulta1ActionPerformed
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastrarFuncionario().setVisible(true);
-            }
-        });     
-    }//GEN-LAST:event_jBtnAgendarConsulta1ActionPerformed
+    private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
+        java.awt.EventQueue.invokeLater(()->{
+            new CadastrarFuncionario().setVisible(true);
+        });
+    }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
-    private void jBtnAgendarConsulta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsulta2ActionPerformed
-        
-    }//GEN-LAST:event_jBtnAgendarConsulta2ActionPerformed
+    private void jBtnCadastrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarPacienteActionPerformed
+        java.awt.EventQueue.invokeLater(()->{
+            new CadastroPaciente().setVisible(true);
+        });
+    }//GEN-LAST:event_jBtnCadastrarPacienteActionPerformed
+
+    private void jBtnAgendarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAgendarConsultaActionPerformed
+            java.awt.EventQueue.invokeLater(()->{
+                new CadastroConsulta().setVisible(true);
+            });        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnAgendarConsultaActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -371,18 +417,16 @@ public class Home extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Home().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Home().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MenusPanel;
     private javax.swing.JButton jBtnAgendarConsulta;
-    private javax.swing.JButton jBtnAgendarConsulta1;
-    private javax.swing.JButton jBtnAgendarConsulta2;
+    private javax.swing.JButton jBtnCadastrarFuncionario;
+    private javax.swing.JButton jBtnCadastrarPaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

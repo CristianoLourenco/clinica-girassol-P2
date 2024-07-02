@@ -6,23 +6,22 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Conectar {
-    private static final String user = "root";
-    private static final String password = "";
+
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
     private static Connection con = null;
-    private static final String url = "jdbc:mysql://localhost:3306/girasol";
-    
-    
-    public static  Connection getConectar (){
-        
+    private static final String URL = "jdbc:mysql://localhost:3306/clinicagirassol";
+
+    public static Connection getConectar() {
         if (con != null) {
-            return  con;
+            return con;
         }
         try{
-               // Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection(url, user, password);
-        }catch(SQLException ex){
-                JOptionPane.showMessageDialog(null,"Erro ao conectar ao banco  de dados"+ex.getMessage());
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco  de dados" + ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
         }
         return con;
-    } 
+    }
 }
