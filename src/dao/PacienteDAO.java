@@ -18,7 +18,7 @@ public class PacienteDAO implements IDao {
         this.con = Conectar.getConectar();
         this.model = pacienteModel;
     }
-
+ 
     @Override
     public boolean insertDaoObject() {
         String sql = "INSERT INTO paciente (nome, bi, data_nascimento, endereco, telefone, genero) VALUES(?, ?, ?, ?, ?, ?) ";
@@ -40,9 +40,9 @@ public class PacienteDAO implements IDao {
     }
 
     @Override
-    public Object listDaoObject() {
+    public  Object listDaoObject() {
         List<Paciente> lista = new ArrayList<>();
-        String sql = "SELECT * FROM paciente ORDER BY nome";
+        String sql = "SELECT * FROM paciente ORDER BY id";
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
@@ -50,8 +50,8 @@ public class PacienteDAO implements IDao {
                 int id = (resultado.getInt("id"));
                 String nome = (resultado.getString("nome"));
                 String bilhete = (resultado.getString("bi"));
-                String nascimento = (resultado.getString("nascimento"));
-                String morada = (resultado.getString("morada"));
+                String nascimento = (resultado.getString("data_nascimento"));
+                String morada = (resultado.getString("endereco"));
                 String phone = (resultado.getString("telefone"));
                 String genero = (resultado.getString("genero"));
 
