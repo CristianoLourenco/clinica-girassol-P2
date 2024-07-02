@@ -4,6 +4,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import models.Especialidade;
 import controllers.Conectar;
+import java.sql.Connection; 
 import controllers.IDao;
 import java.sql.Connection;
 import java.util.List;
@@ -22,7 +23,8 @@ public class EspecialidadeDAO implements IDao {
     @Override
     public boolean insertDaoObject() {
         String sql = "INSERT INTO especialidade (nome,descricao) VALUES (?,?)";
-        try (PreparedStatement smt = con.prepareStatement(sql);) {
+        try {
+            PreparedStatement smt = con.prepareStatement(sql);
             smt.setString(1, especialidade.getNomeEspecialidade());
             smt.setString(2, especialidade.getDescricao());
             smt.executeUpdate();
@@ -60,7 +62,8 @@ public class EspecialidadeDAO implements IDao {
     @Override
     public boolean updateDaoObject() {
         String sql = "UPDATE especialidade SET  nomeEspecialidade = ? , descricao = ? WHERE id = ?";
-        try (PreparedStatement smt = con.prepareStatement(sql);) {
+        try {
+            PreparedStatement smt = con.prepareStatement(sql);
             smt.setString(1, especialidade.getNomeEspecialidade());
             smt.setString(2, especialidade.getDescricao());
             smt.executeUpdate();
@@ -77,15 +80,16 @@ public class EspecialidadeDAO implements IDao {
     public boolean deleteDaoObject() {
         String sql = "DELETE FROM especialidade WHERE id = ?";
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir a especialidade " + especialidade.getNomeEspecialidade() + " ? ", "Excluir", JOptionPane.YES_NO_OPTION);
-        if (opcao == JOptionPane.YES_OPTION) {
-            try (PreparedStatement smt = con.prepareStatement(sql);) {
+        if (opcao == JOptionPane.YES_OPTION) { 
+            try {
+                PreparedStatement smt = con.prepareStatement(sql);
                 smt.setInt(1, especialidade.getEspecialidade_id());
                 smt.executeUpdate();
                 smt.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao deletar especialidade: " + ex.getMessage());
                 throw new RuntimeException("Erro ao Deletar" + ex.getMessage());
-            }
+            } 
         }
         return true;
     }

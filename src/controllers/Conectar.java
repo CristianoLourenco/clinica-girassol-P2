@@ -16,9 +16,9 @@ public class Conectar {
         if (con != null) {
             return con;
         }
-        try {
+        try{
             con = DriverManager.getConnection(URL, USER, PASSWORD);
-        } catch (SQLException ex) {
+        }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco  de dados" + ex.getMessage());
             throw new RuntimeException(ex.getMessage());
         }

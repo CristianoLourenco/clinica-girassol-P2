@@ -32,6 +32,7 @@ public class PacienteDAO implements IDao {
             smt.setString(6, this.model.getGenero());
             smt.execute();
             smt.close();
+            con.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             throw new RuntimeException(ex.getMessage());
@@ -79,6 +80,7 @@ public class PacienteDAO implements IDao {
             smt.setInt(7, this.model.getPaciente_id());
             smt.executeUpdate();
             smt.close();
+            con.close();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Erro ao actualizar o registro!");
             throw new RuntimeException(ex.getMessage());
@@ -96,6 +98,7 @@ public class PacienteDAO implements IDao {
                 smt.setInt(1, model.getPaciente_id());
                 smt.executeUpdate();
                 smt.close();
+                con.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao  Deletar");
                 throw new RuntimeException(ex.getMessage());

@@ -4,7 +4,7 @@ package models;
 import java.time.LocalDate; 
 
 public class Consulta {
-    private String id;
+    private int id;
     private String paciente_id;
     private String medico_id;
     private LocalDate dataConsulta;
@@ -22,7 +22,7 @@ public class Consulta {
     
     
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     } 
     public void setDataConsulta(LocalDate dataConsulta) {
@@ -35,7 +35,7 @@ public class Consulta {
         this.especialidade = especialidade;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
     public String getPaciente_id() {
