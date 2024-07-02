@@ -8,6 +8,7 @@ import java.sql.Connection;
 import controllers.IDao;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 
     public class ConsultaDAO implements IDao {

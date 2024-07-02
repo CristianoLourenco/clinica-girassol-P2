@@ -40,14 +40,8 @@ public class EspecialidadeDAO implements IDao {
     @Override
     public List<Especialidade> listDaoObject() {
         List<Especialidade> lista = new ArrayList<>();
-<<<<<<< HEAD
-        String sql = "SELECT * FROM especialidade ORDER BY nome";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
-=======
         String sql = "SELECT * FROM especialidade ORDER BY id";
         try (PreparedStatement smt = con.prepareStatement(sql);) {
->>>>>>> f95986703361280c128a4689360aeb19a540af69
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
 

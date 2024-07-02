@@ -97,16 +97,9 @@ public class FuncionarioDAO implements IDao {
 
     @Override
     public Object listDaoObject() {
-<<<<<<< HEAD
-        List<Funcionario> listaFuncionarios = new ArrayList<>();
-        String sql = "SELECT * FROM funcionario ORDER BY nome";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
-=======
         List<Object> listaFuncionarios = new ArrayList<>();
         String sql = "SELECT * FROM funcionario";
         try (PreparedStatement smt = con.prepareStatement(sql)) {
->>>>>>> f95986703361280c128a4689360aeb19a540af69
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
                 final Object funcionario = setTipoFuncionario(resultado);
