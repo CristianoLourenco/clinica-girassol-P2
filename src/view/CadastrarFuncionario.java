@@ -298,7 +298,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jCmbBoxGeneroActionPerformed
 
     private void jBtnCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCadastrarFuncionarioActionPerformed
-     String nome = jTextNome.getText();
+        String nome = jTextNome.getText();
         String morada = jTextMorada.getText();
         String data_nascimento = jFTextNascimento.getText();
         String data_contrato = jFTextDataContrato.getText();
@@ -310,9 +310,8 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         BigDecimal salario = BigDecimal.valueOf(Double.parseDouble(jTextSalario.getText()));
         int especialidade_id = getEspecialidadeId();
 
-       // Funcionario funcionarioModel;
-
-       Medico medicoModel = new Medico(
+        // Funcionario funcionarioModel;
+        Medico medicoModel = new Medico(
                 Integer.parseInt(jTextNumeroDaOrdem.getText()),
                 nome, bi_funcionario,
                 data_contrato,
@@ -325,9 +324,9 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
                 morada,
                 especialidade_id
         );
- 
-      boolean result  = medicoModel.cadastrarFuncionario();
-  
+
+        boolean result = medicoModel.cadastrarFuncionario();
+
         System.out.println("Medico cadastrado: " + result);
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
