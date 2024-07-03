@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.dashboard;
+package view.dashboard.components;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -23,10 +23,13 @@ public class MenuItem extends javax.swing.JPanel {
             case MENU:
                 lblIcon.setIcon(data.toIcon());
                 lblName.setText(data.getName());
+                lblName.setForeground(Color.white);
                 break;
             case TITLE:
                 lblIcon.setText(data.getName());
-                lblIcon.setFont(new Font("Roboto", 2, 14));
+                lblIcon.setFont(new Font("Roboto", 1, 14));
+                lblName.setVisible(false);
+                
                 
                 break;
 
@@ -48,6 +51,7 @@ public class MenuItem extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
 
         lblIcon.setBackground(new java.awt.Color(255, 255, 255));
+        lblIcon.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
         lblName.setBackground(new java.awt.Color(255, 255, 255));
         lblName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N

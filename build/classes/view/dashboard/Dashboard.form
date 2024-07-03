@@ -34,10 +34,10 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="view.dashboard.PanelBorder" name="panelBorder1">
+    <Container class="view.dashboard.components.PanelBorder" name="panelBorder1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="f2" green="f2" red="f2" type="rgb"/>
         </Property>
       </Properties>
 
@@ -46,18 +46,25 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="menu_dashBoard" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="738" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="headerPanel1" pref="781" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="menu_dashBoard" alignment="0" pref="643" max="32767" attributes="0"/>
+              <Component id="menu_dashBoard" pref="610" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Component id="headerPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="view.dashboard.components.Menu" name="menu_dashBoard">
+        </Component>
+        <Component class="view.dashboard.components.HeaderPanel" name="headerPanel1">
         </Component>
       </SubComponents>
     </Container>
