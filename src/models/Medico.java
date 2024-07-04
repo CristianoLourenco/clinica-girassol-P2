@@ -81,7 +81,6 @@ public class Medico extends Funcionario {
     public void setDia_disponivel(LocalDate dia_disponivel) {
         this.dia_disponivel = dia_disponivel;
     }
-
     
     public int getNumeroOrdem() {
         return numeroOrdem;

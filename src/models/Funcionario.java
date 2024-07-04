@@ -31,10 +31,8 @@ public class Funcionario {
         this.telefone = telefone;
         this.salario = salario;
     }
-    
 
-    
- /*  public Funcionario(
+    /*  public Funcionario(
             String nome_funcionario,
             String bi_funcionario,
             String data_contrato,
@@ -57,9 +55,9 @@ public class Funcionario {
         this.morada = morada;
         this.data_nascimento = data_nascimento;
     }*/
+    public Funcionario() {
+    }
 
-    public Funcionario() {}
-    
     public String getMorada() {
         return morada;
     }
@@ -88,14 +86,14 @@ public class Funcionario {
     public int getId_funcionario() {
         return id_funcionario;
     }
-    
+
     protected int getId_funcionario(String name) {
-        FuncionarioDAO dao =  new FuncionarioDAO(this);
-        ArrayList<Funcionario> lista = (ArrayList<Funcionario>)dao.listDaoObject();
-        for (Funcionario model :lista) {
-            if(model.nome_funcionario.matches(name)){
+        FuncionarioDAO dao = new FuncionarioDAO(this);
+        ArrayList<Funcionario> lista = (ArrayList<Funcionario>) dao.listDaoObject();
+        for (Funcionario model : lista) {
+            if (model.nome_funcionario.matches(name)) {
                 return model.id_funcionario;
-            } 
+            }
         }
         return -1;
     }
@@ -142,6 +140,10 @@ public class Funcionario {
 
     public String getGenero() {
         return this.genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public void setSalario(BigDecimal salario) {

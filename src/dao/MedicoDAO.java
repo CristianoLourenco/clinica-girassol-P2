@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import controllers.Conectar;
 import controllers.IDao;
+import java.math.BigDecimal;
 import java.util.List;
 import java.sql.SQLException;
 
@@ -24,12 +25,12 @@ public class MedicoDAO implements IDao {
     @Override
     public boolean insertDaoObject() {
         String sql = "INSERT INTO `medico` (`numero_ordem`, `especialidade_id`, `funcionario_id`) VALUES (?,?,?)";
-        
+
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setInt(1, model.getNumeroOrdem());
-            smt.setInt(2, model.getEspecialidadeId());            
-            smt.setInt(3, model.getId_funcionario()); 
-            smt.executeUpdate(); 
+            smt.setInt(2, Integer.valueOf(model.getEspecialidade_id()));
+            smt.setInt(3, model.getId_funcionario());
+            smt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cadastrado com  sucesso");
         } catch (HeadlessException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao cadastrar medico");
@@ -38,25 +39,38 @@ public class MedicoDAO implements IDao {
         }
         return true;
     }
-    
 
     @Override
-    public  List<Medico>  listDaoObject() {
+    public List<Medico> listDaoObject() {
         List<Medico> listaMedicos = new ArrayList<>();
-      String sql = "SELECT * FROM medico_view";
-        try{
+        String sql = "SELECT * FROM medico_view";
+        try {
             PreparedStatement smt = con.prepareStatement(sql);
             var resultado = smt.executeQuery();
-            while (resultado.next()){
+            while (resultado.next()) {
+                
+                BigDecimal salario = BigDecimal.valueOf(resultado.getLong("Ordem_id")) ;
                 Medico m = new Medico();
-                m.setNumeroOrdem(resultado.getInt("numeroOrdem"));
-              //  m.setMedico_especialidade(resultado.getString("medico_especialidade"));
-                m.setHorarioTrabalho(resultado.getString("horario_trabalho"));
+                m.setId_funcionario(resultado.getInt("id"));
+                m.setNumeroOrdem(resultado.getInt("Ordem_id"));
+                m.setEspecialidade_id(resultado.getString("Especialidade"));
+                m.setNome_funcionario(resultado.getString("nome"));
+                m.setBi_funcionario(resultado.getString("bi"));
+                m.setGenero(resultado.getString("genero"));
+                //m.setSalario(  resultado.getObject("Ordem_id"));
+                m.setEspecialidade_id(resultado.getString("Especialidade"));
+                m.setHora_disponivel(resultado.getString("Hora disponivel"));
+                m.setNumeroOrdem(resultado.getInt("Ordem_id"));
+                m.setEspecialidade_id(resultado.getString("Especialidade"));
+                m.setHora_disponivel(resultado.getString("Hora disponivel"));
+                m.setNumeroOrdem(resultado.getInt("Ordem_id"));
+                m.setEspecialidade_id(resultado.getString("Especialidade"));
+                m.setHora_disponivel(resultado.getString("Hora disponivel"));
                 listaMedicos.add(m);
             }
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao buscar os Medicos");
-        } 
+        }
         return listaMedicos;
     }
 
@@ -66,7 +80,7 @@ public class MedicoDAO implements IDao {
         try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setInt(1, model.getNumeroOrdem());
             smt.setString(2, model.getNome_funcionario());
-            smt.setString(3, model.getHorarioTrabalho());
+          //  smt.setString(3, model.getHorarioTrabalho());
             smt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Medico actualizado");
             smt.close();
