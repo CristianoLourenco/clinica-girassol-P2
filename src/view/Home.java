@@ -16,7 +16,7 @@ public class Home extends javax.swing.JFrame {
 
     public Home() {
         initComponents();
-        initializePatients();
+      //  initializePatients();
     }
 
     @SuppressWarnings("unchecked")
@@ -33,8 +33,6 @@ public class Home extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTablePaciente = new javax.swing.JTable();
         jBtnCadastrarPaciente = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -124,27 +122,6 @@ public class Home extends javax.swing.JFrame {
 
         jTextField3.setText("Pesquisar");
 
-        jTablePaciente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id", "Nome", "Nº Bilhete", "Telefone ", "Nascido aos", "Genero", "Morada"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTablePaciente.setShowGrid(false);
-        jTablePaciente.getTableHeader().setResizingAllowed(false);
-        jTablePaciente.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTablePaciente);
-
         jBtnCadastrarPaciente.setText("Cadastrar Paceinte");
         jBtnCadastrarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,10 +140,8 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(467, 467, 467)
+                .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -175,9 +150,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(357, 357, 357)
                 .addComponent(jBtnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 17, Short.MAX_VALUE))
         );
@@ -328,7 +301,7 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/*
     private void initializePatients() {
         PacienteDAO dao = new PacienteDAO(null);
         List<Paciente> lista = (ArrayList<Paciente>) dao.listDaoObject(); 
@@ -340,7 +313,7 @@ public class Home extends javax.swing.JFrame {
     private DefaultTableModel tablePacientModel() {
         return (DefaultTableModel) jTablePaciente.getModel();
     }
-
+*/
     private void lbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPacienteMouseClicked
 
     }//GEN-LAST:event_lbPacienteMouseClicked
@@ -412,11 +385,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTablePaciente;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
