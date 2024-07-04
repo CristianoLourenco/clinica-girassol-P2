@@ -1,5 +1,6 @@
 package viewModel;
 
+import event.EventMenuSelected;
 import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,11 +16,18 @@ public class ListMenu<E extends Object> extends JList<E> {
 
     private final DefaultListModel model;
     private int selectedIndex = -1;
+    private int hoverIndex = -1;
+
+    private EventMenuSelected event;
+
+    public void addEventMenuSelected(EventMenuSelected event) {
+        this.event = event;
+    }
 
     public ListMenu() {
         this.model = new DefaultListModel();
         setModel(model);
-        
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -29,6 +37,9 @@ public class ListMenu<E extends Object> extends JList<E> {
                     if (object instanceof MenuModel menu) {
                         if (menu.getType() == MenuModel.MenuType.MENU) {
                             selectedIndex = index;
+                            if (event != null) {
+                                event.selected(index);
+                            }
                         } else {
                             selectedIndex = index;
                         }
@@ -36,7 +47,35 @@ public class ListMenu<E extends Object> extends JList<E> {
                     }
                 }
             }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                hoverIndex = -1;
+                repaint();
+                super.mouseExited(e);
+            }
         });
+
+        addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                int index = locationToIndex(e.getPoint());
+                if (index != hoverIndex) {
+                    Object object = model.getElementAt(index);
+                    if (object instanceof MenuModel) {
+                        MenuModel menu = (MenuModel) object;
+                        if (menu.getType() == MenuModel.MenuType.MENU) {
+                            hoverIndex = index;
+                        } else {
+                            hoverIndex = -1;
+                        }
+                        repaint();
+                    }
+                }
+            }
+
+        });
+
     }
 
     @Override
@@ -52,10 +91,11 @@ public class ListMenu<E extends Object> extends JList<E> {
                 }
                 MenuItem item = new MenuItem(data);
                 item.setSelected(selectedIndex == index);
+                item.setOver(hoverIndex == index);
                 return item;
             }
 
-        }; 
+        };
     }
 
     public void addItem(MenuModel data) {

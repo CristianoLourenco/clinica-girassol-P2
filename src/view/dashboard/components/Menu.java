@@ -1,5 +1,6 @@
 package view.dashboard.components;
 
+import event.EventMenuSelected;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
@@ -18,6 +19,12 @@ public class Menu extends javax.swing.JPanel {
         setOpaque(false);
         listMenu1.setOpaque(false);
         init();
+    }
+    
+    private EventMenuSelected event;
+    public void addEventMenuSelected(EventMenuSelected event){
+        this.event = event;
+        listMenu1.addEventMenuSelected(event);
     }
 
     private void init() {

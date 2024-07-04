@@ -4,21 +4,52 @@
  */
 package view.dashboard;
 
+import event.EventMenuSelected;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JComponent;
+import view.forms.Paciente_panel;
+import view.panels.Consulta_panel;
+import view.panels.Funcionario_panel;
+import view.panels.Home_panel;
 
-/**
- *
- * @author crist
- */
 public class Dashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Dashboard
-     */
+    private Paciente_panel pacientes;
+    private Home_panel home;
+    private Funcionario_panel funcionario;
+    private Consulta_panel consulta;
+
     public Dashboard() {
         initComponents();
-        setBackground(new Color(0,0,0,0));
+        setBackground(new Color(0, 0, 0, 0));
+        pacientes = new Paciente_panel();
+        home = new Home_panel();
+        funcionario = new Funcionario_panel();
+        consulta = new Consulta_panel();
         menu_dashBoard.initMoviment(this);
+        menu_dashBoard.addEventMenuSelected(new EventMenuSelected() {
+            @Override
+            public void selected(int index) {
+                if (index == 0) {
+                    setForm(home);
+                } else if (index == 1) {
+                    setForm(pacientes);
+                } else if (index == 2) {
+                    setForm(consulta);
+                } else if (index == 3) {
+                    setForm(funcionario);
+                }
+            }
+        });
+       setForm(new Home_panel());
+    }
+
+    private void setForm(JComponent form) {
+        mainPanel1.removeAll();
+        mainPanel1.add(form);
+        mainPanel1.repaint();
+        mainPanel1.revalidate();
     }
 
     /**
@@ -33,11 +64,14 @@ public class Dashboard extends javax.swing.JFrame {
         panelBorder1 = new view.dashboard.components.PanelBorder();
         menu_dashBoard = new view.dashboard.components.Menu();
         headerPanel1 = new view.dashboard.components.HeaderPanel();
+        mainPanel1 = new view.dashboard.components.MainPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         panelBorder1.setBackground(new java.awt.Color(242, 242, 242));
+
+        mainPanel1.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout panelBorder1Layout = new javax.swing.GroupLayout(panelBorder1);
         panelBorder1.setLayout(panelBorder1Layout);
@@ -45,15 +79,21 @@ public class Dashboard extends javax.swing.JFrame {
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(menu_dashBoard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(headerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE))
+                .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(headerPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
+                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         panelBorder1Layout.setVerticalGroup(
             panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu_dashBoard, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+            .addComponent(menu_dashBoard, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addComponent(headerPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,6 +148,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private view.dashboard.components.HeaderPanel headerPanel1;
+    private view.dashboard.components.MainPanel mainPanel1;
     private view.dashboard.components.Menu menu_dashBoard;
     private view.dashboard.components.PanelBorder panelBorder1;
     // End of variables declaration//GEN-END:variables

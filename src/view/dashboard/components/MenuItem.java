@@ -15,6 +15,7 @@ import viewModel.MenuModel;
 public class MenuItem extends javax.swing.JPanel {
 
     private boolean selected;
+    private boolean hover;
 
     public MenuItem(MenuModel data) {
         initComponents();
@@ -29,13 +30,15 @@ public class MenuItem extends javax.swing.JPanel {
                 lblIcon.setText(data.getName());
                 lblIcon.setFont(new Font("Roboto", 1, 14));
                 lblName.setVisible(false);
-                
-                
                 break;
-
             default:
                 lblName.setText("");
         }
+    }
+
+    public void setOver(boolean hover) {
+        this.hover = hover;
+        repaint();
     }
 
     public void setSelected(boolean selected) {
@@ -81,10 +84,15 @@ public class MenuItem extends javax.swing.JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        if (selected) {
+
+        if (selected || hover) {
             Graphics2D graphinc = (Graphics2D) g;
             graphinc.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            graphinc.setColor(new Color(255, 255, 255, 80));
+            if (selected) {
+                graphinc.setColor(new Color(255, 255, 255, 80));
+            } else {
+                graphinc.setColor(new Color(255, 255, 255, 20));
+            }
             graphinc.fillRoundRect(0, 0, getWidth(), getHeight(), 5, 5);
         }
         super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
