@@ -19,16 +19,11 @@ public class Especialidade {
         return dao.insertDaoObject();
     }
 
-    /**
-     * @return the especialidade_id
-     */
+ 
     public int getEspecialidade_id() {
         return especialidade_id;
-    }
-
-    /**
-     * @param especialidade_id the especialidade_id to set
-     */
+    } 
+    
     public void setEspecialidade_id(int especialidade_id) {
         this.especialidade_id = especialidade_id;
     }
@@ -47,6 +42,14 @@ public class Especialidade {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+     public String[] toList(){
+        String[] list = new String[3];
+        list[0] = String.valueOf(especialidade_id) ;
+        list[1] = this.nomeEspecialidade;
+        list[2] = this.descricao;
+        return list;
     }
 
 }

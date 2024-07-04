@@ -21,8 +21,7 @@ public class MedicamentoDao implements IDao {
     @Override
     public boolean insertDaoObject() {
         String sql = "INSERT INTO medicamento(nomeMedicamento,dataFabrico,dataExpiracao,instrucao) values (?,?,?,?)";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, med.getNomeMedicamento());
             smt.setString(2, med.getDataFabrico());
             smt.setString(3, med.getDataExpiracao());
@@ -41,8 +40,7 @@ public class MedicamentoDao implements IDao {
     public Object listDaoObject() {
         List<Medicamento> listaMedicamentos = new ArrayList<>();
         String sql = "SELECT * FROM medicamento ORDER BY nomeMedicamento";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             ResultSet resultado = smt.executeQuery();
             while (resultado.next()) {
                 int id = (resultado.getInt("medicamentoId"));
@@ -64,8 +62,7 @@ public class MedicamentoDao implements IDao {
     @Override
     public boolean updateDaoObject() {
         String sql = "UPDATE medicamento SET nomeMedicamento = ?, dataFabrico = ?,dataExpiracao = ?,instrucao = ?";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, med.getNomeMedicamento());
             smt.setString(2, med.getDataFabrico());
             smt.setString(3, med.getDataExpiracao());
@@ -85,8 +82,7 @@ public class MedicamentoDao implements IDao {
         String sql = "DELETE FROM medicamento WHERE id = ?";
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o medicamento " + med.getNomeMedicamento() + " ? ", "Excluir", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
-            try {
-                PreparedStatement smt = con.prepareStatement(sql);
+            try (PreparedStatement smt = con.prepareStatement(sql)) {
                 smt.setInt(1, med.getMedicamentoId());
                 smt.setString(2, med.getNomeMedicamento());
                 smt.setString(3, med.getDataFabrico());

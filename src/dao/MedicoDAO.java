@@ -64,8 +64,7 @@ public class MedicoDAO implements IDao {
     @Override
     public boolean updateDaoObject() {
         String sql = "UPDATE funcionario SET crm = ?,medico_especialidade = ?,horarioTrabalho";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setInt(1, model.getNumeroOrdem());
             smt.setString(2, model.getNome_funcionario());
             smt.setString(3, model.getHorarioTrabalho());
@@ -85,8 +84,7 @@ public class MedicoDAO implements IDao {
         String nome = model.getNome_funcionario();
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Funcionario" + nome, "Exclusao", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
-            try {
-                PreparedStatement smt = con.prepareStatement(sql);
+            try (PreparedStatement smt = con.prepareStatement(sql)) {
                 smt.setInt(1, model.getNumeroOrdem());
                 smt.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Excluido com sucesso");

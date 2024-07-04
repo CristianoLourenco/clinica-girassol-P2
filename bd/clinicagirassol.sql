@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2024 at 08:37 PM
+-- Generation Time: Jul 02, 2024 at 07:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,13 +81,13 @@ CREATE TABLE `funcionario` (
   `id` int(11) NOT NULL,
   `nome` varchar(150) NOT NULL,
   `bi` varchar(14) NOT NULL,
-  `morada` text NOT NULL,
-  `cargo` varchar(150) NOT NULL,
-  `genero` enum('M','F') NOT NULL,
-  `funcao` enum('Atendente','Medico','Enfermeiro','') NOT NULL,
   `telefone` varchar(9) NOT NULL,
-  `salario` double NOT NULL,
+  `morada` text NOT NULL,
+  `genero` enum('M','F') NOT NULL,
   `data_nascimento` date NOT NULL,
+  `cargo` varchar(150) NOT NULL,
+  `funcao` enum('Atendente','Medico','Enfermeiro','') NOT NULL,
+  `salario` double NOT NULL,
   `data_contrato` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -95,26 +95,33 @@ CREATE TABLE `funcionario` (
 -- Dumping data for table `funcionario`
 --
 
-INSERT INTO `funcionario` (`id`, `nome`, `bi`, `morada`, `cargo`, `genero`, `funcao`, `telefone`, `salario`, `data_nascimento`, `data_contrato`) VALUES
-(1, 'Joel Silva', '00232LS3443', 'Luanda', 'Gerente Chefe', 'M', 'Atendente', '933203433', 1000000, '1989-09-23', '2010-06-29'),
-(2, 'Miguel Lucas', '00232LS3443', 'Malanje', 'Operacional junior', 'M', 'Atendente', '933203433', 1980000, '2000-09-23', '2020-08-01'),
-(3, 'Mariano Carlos', '009433KA343', 'Luanda', 'Chefe de Plantao', 'M', 'Medico', '933342211', 2000000, '2000-09-23', '2020-08-01'),
-(4, 'Jojo Marontini', '034DDKS', 'Viana', 'Sirurgia chefe', 'F', 'Medico', '93343412', 29300043, '1987-10-25', '2014-04-28'),
-(5, 'Garcia Lucas', '0034jjdfd', 'Luanda', 'Chefe', 'M', 'Medico', '293923', 1923883, '1990-08-22', '2018-12-03'),
-(6, 'Karlos Martinho', '8883444', 'Kilamba', 'Junior', 'M', 'Medico', '99340003', 92022330, '1982-11-09', '2018-10-23'),
-(7, 'Karlinhos Gomes', '8342', 'Kilamba', 'Interno', 'M', 'Medico', '9230030', 829920000, '1988-07-22', '2010-10-05');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `funcionario_medico`
---
-
-CREATE TABLE `funcionario_medico` (
-  `id` int(11) NOT NULL,
-  `id_medico` int(11) NOT NULL,
-  `id_funcionario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+INSERT INTO `funcionario` (`id`, `nome`, `bi`, `telefone`, `morada`, `genero`, `data_nascimento`, `cargo`, `funcao`, `salario`, `data_contrato`) VALUES
+(1, 'Joel Silva', '00232LS3443', '933203433', 'Luanda', 'M', '1989-09-23', 'Gerente Chefe', 'Atendente', 1000000, '2010-06-29'),
+(2, 'Miguel Lucas', '00232LS3443', '933203433', 'Malanje', 'M', '2000-09-23', 'Operacional junior', 'Atendente', 1980000, '2020-08-01'),
+(3, 'Mariano Carlos', '009433KA343', '933342211', 'Luanda', 'M', '2000-09-23', 'Chefe de Plantao', 'Medico', 2000000, '2020-08-01'),
+(4, 'Jojo Marontini', '034DDKS', '93343412', 'Viana', 'F', '1987-10-25', 'Sirurgia chefe', 'Medico', 29300043, '2014-04-28'),
+(5, 'Garcia Lucas', '0034jjdfd', '293923', 'Luanda', 'M', '1990-08-22', 'Chefe', 'Medico', 1923883, '2018-12-03'),
+(6, 'Karlos Martinho', '8883444', '99340003', 'Kilamba', 'M', '1982-11-09', 'Junior', 'Medico', 92022330, '2018-10-23'),
+(7, 'Karlinhos Gomes', '8342', '9230030', 'Kilamba', 'M', '1988-07-22', 'Interno', 'Medico', 829920000, '2010-10-05'),
+(8, 'Joao De almeida', '00237LA774898', '933442244', 'Luanda, Angola', 'M', '1982-10-29', 'Chefe de sirurgia', 'Medico', 9110000, '2017-06-29'),
+(9, 'Antonia Silvana', '0023KA344388', '990223388', 'Lisboa', 'F', '1982-10-23', 'Sirurgiia chefe', 'Medico', 992388888, '2011-09-27'),
+(10, 'Jonas', '00349', '99343', 'Luanda', 'M', '1980-02-05', 'Cheffe', 'Medico', 930004394, '2001-01-20'),
+(11, 'Karlinhos', '3949342', '93443322', 'Camama', 'M', '1979-05-10', 'Chefe', 'Medico', 2999932, '2001-02-02'),
+(12, 'Kikio Shinomia', '2993LA8434', '932283322', 'Kilamba', 'F', '1995-10-05', 'Adjunta', 'Medico', 9990432, '2017-06-29'),
+(13, 'Jorje Garcia', '003298834', '993203288', 'Sao Paulo', 'M', '1980-02-23', 'Auxiliar', 'Medico', 9232312321, '2022-10-05'),
+(14, 'Josh', '0223392KA', '922113344', 'Japão', 'M', '1988-09-11', 'Chefe', 'Medico', 198000, '2010-10-02'),
+(15, 'Jonas Savios', '0099388823', '922110022', 'Benguela', 'M', '1979-09-12', 'Auxiliar ', 'Medico', 19988222, '2009-11-29'),
+(16, 'Carlos Silva', '0027732888', '9223322', 'Luanda', 'M', '1989-03-01', 'Medico Junior', 'Medico', 1920000, '2018-11-03'),
+(17, 'Catarino Silva', '002931LA9343', '921332244', 'Luanda', 'M', '1987-05-12', 'Che=fe', 'Medico', 1920000232, '2000-10-23'),
+(18, 'Janaina Belo', '002932321KAS', '923388221', 'Kikuxi', 'F', '2000-02-20', 'Chefe de Sirurgia', 'Medico', 99910000, '2024-03-02'),
+(19, 'Kaslka', '893492', '983429', 'KLsA', 'M', '2000-10-02', 'jfdkfds', 'Medico', 89343243, '2010-12-03'),
+(20, 'dfff', '34243', '324324', 'fdsfds', 'M', '1999-10-22', 'dsfsfsd', 'Medico', 34324324324, '1922-02-11'),
+(21, 'gfgfd', '4545', '454354', 'fdgfdg', 'M', '1111-11-11', 'ffgdf', 'Medico', 44333, '1111-11-11'),
+(22, 'dffds', '43423', '33432', 'dffds', 'M', '1111-11-11', 'fsdf', 'Medico', 432432, '1111-11-11'),
+(23, 'ffdsfds', '3434', '2434', 'erwere', 'M', '1111-11-11', 'fsfsd', 'Medico', 434243, '1111-11-11'),
+(24, 'sadsad', '4343', '34243', 'dsadad', 'F', '1111-11-11', 'dfdsf', 'Medico', 34434, '1111-11-11'),
+(25, 'gfdgdf', '324234', '43432', 'fdgdfgf3', 'M', '1111-11-11', 'dfsfd', 'Medico', 3423432, '1111-11-11'),
+(26, 'Cdsadsd', 'dfs', '343', 'dsdsd', 'F', '1111-11-11', 'dfdsf', 'Medico', 342432, '1111-11-11');
 
 -- --------------------------------------------------------
 
@@ -139,16 +146,19 @@ CREATE TABLE `medicamento` (
 --
 
 CREATE TABLE `medico` (
-  `numeroDaOrdem` int(11) NOT NULL,
-  `especialidadeId` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `numero_ordem` int(11) NOT NULL,
+  `especialidade_id` int(11) NOT NULL,
+  `funcionario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `medico`
 --
 
-INSERT INTO `medico` (`numeroDaOrdem`, `especialidadeId`) VALUES
-(9000, 1);
+INSERT INTO `medico` (`id`, `numero_ordem`, `especialidade_id`, `funcionario_id`) VALUES
+(2, 23, 4, 14),
+(4, 34545, 4, 26);
 
 -- --------------------------------------------------------
 
@@ -207,14 +217,6 @@ ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `funcionario_medico`
---
-ALTER TABLE `funcionario_medico`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `funcionario_medico_fkfuncionario` (`id_funcionario`),
-  ADD KEY `funcionario_medico_fkmedico` (`id_medico`);
-
---
 -- Indexes for table `medicamento`
 --
 ALTER TABLE `medicamento`
@@ -224,8 +226,10 @@ ALTER TABLE `medicamento`
 -- Indexes for table `medico`
 --
 ALTER TABLE `medico`
-  ADD PRIMARY KEY (`numeroDaOrdem`),
-  ADD KEY `especialidadeId` (`especialidadeId`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `numero_ordem` (`numero_ordem`),
+  ADD KEY `medico_ibfk_1` (`especialidade_id`),
+  ADD KEY `medico_ibfk_2` (`funcionario_id`);
 
 --
 -- Indexes for table `paciente`
@@ -259,19 +263,19 @@ ALTER TABLE `factura`
 -- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `funcionario_medico`
---
-ALTER TABLE `funcionario_medico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `medicamento`
 --
 ALTER TABLE `medicamento`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `medico`
+--
+ALTER TABLE `medico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `paciente`
@@ -284,17 +288,11 @@ ALTER TABLE `paciente`
 --
 
 --
--- Constraints for table `funcionario_medico`
---
-ALTER TABLE `funcionario_medico`
-  ADD CONSTRAINT `funcionario_medico_fkfuncionario` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `funcionario_medico_fkmedico` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`numeroDaOrdem`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `medico`
 --
 ALTER TABLE `medico`
-  ADD CONSTRAINT `medico_ibfk_1` FOREIGN KEY (`especialidadeId`) REFERENCES `especialidade` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `medico_ibfk_1` FOREIGN KEY (`especialidade_id`) REFERENCES `especialidade` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `medico_ibfk_2` FOREIGN KEY (`funcionario_id`) REFERENCES `funcionario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

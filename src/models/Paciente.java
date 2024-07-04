@@ -81,7 +81,7 @@ public class Paciente {
     public void setPaciente_id(int paciente_id) {
         this.id = paciente_id;
     }
-    public String[] listPropieties(){
+    public String[] toList(){
         String[] list = new String[7];
         list[0] = String.valueOf(id) ;
         list[1] = nome;

@@ -33,8 +33,7 @@ public class FuncionarioDAO implements IDao {
         Date data_nascimento = Date.valueOf(model.getDataNascimento());
         Date data_contratato = Date.valueOf(model.getData_Contratacao());
 
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, model.getNome_funcionario());
             smt.setString(2, model.getBi_funcionario());
             smt.setString(3, model.getMorada());
@@ -115,8 +114,7 @@ public class FuncionarioDAO implements IDao {
     @Override
     public boolean updateDaoObject() {
         String sql = "UPDATE funcionario SET nome = ?, bi = ?,data_contratacao = ?,cargo = ?,salario = ? WHERE id = ? ";
-        try {
-            PreparedStatement smt = con.prepareStatement(sql);
+        try (PreparedStatement smt = con.prepareStatement(sql)) {
             smt.setString(1, model.getNome_funcionario());
             smt.setString(2, model.getBi_funcionario());
             smt.setString(3, model.getData_Contratacao());
@@ -139,8 +137,7 @@ public class FuncionarioDAO implements IDao {
         int id = model.getId_funcionario();
         int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o Funcionario " + nome, "Exclusao", JOptionPane.YES_NO_OPTION);
         if (opcao == JOptionPane.YES_OPTION) {
-            try {
-                PreparedStatement smt = con.prepareStatement(sql);
+            try (PreparedStatement smt = con.prepareStatement(sql)) {
                 smt.setInt(1, id);
                 smt.executeUpdate();
                 smt.close();

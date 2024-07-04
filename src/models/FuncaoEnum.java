@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package models;
+
  
 public enum FuncaoEnum {
   Medico,

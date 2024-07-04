@@ -4,15 +4,15 @@ package models;
 import java.time.LocalDate; 
 
 public class Consulta {
-    private int id;
+    private String id;
     private String paciente_id;
     private String medico_id;
-    private String dataConsulta;
+    private LocalDate dataConsulta;
     private boolean status;
     private String especialidade;
     
      
-    public Consulta(String paciente_id,String medico_id ,String dataConsulta, boolean status, String especialidade) {
+    public Consulta(String paciente_id,String medico_id ,LocalDate dataConsulta, boolean status, String especialidade) {
         this.paciente_id = paciente_id;
         this.medico_id = medico_id;
         this.dataConsulta = dataConsulta;
@@ -22,10 +22,10 @@ public class Consulta {
     
     
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     } 
-    public void setDataConsulta(String dataConsulta) {
+    public void setDataConsulta(LocalDate dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
     public void setStatus(boolean status) {
@@ -35,13 +35,13 @@ public class Consulta {
         this.especialidade = especialidade;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
     public String getPaciente_id() {
         return paciente_id;
     }
-    public String getDataConsulta() {
+    public LocalDate getDataConsulta() {
         return dataConsulta;
     }
     public boolean getStatus() {
