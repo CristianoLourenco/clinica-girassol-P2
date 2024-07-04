@@ -7,12 +7,12 @@ public class Consulta {
     private int id;
     private String paciente_id;
     private String medico_id;
-    private LocalDate dataConsulta;
+    private String dataConsulta;
     private boolean status;
     private String especialidade;
     
      
-    public Consulta(String paciente_id,String medico_id ,LocalDate dataConsulta, boolean status, String especialidade) {
+    public Consulta(String paciente_id,String medico_id ,String dataConsulta, boolean status, String especialidade) {
         this.paciente_id = paciente_id;
         this.medico_id = medico_id;
         this.dataConsulta = dataConsulta;
@@ -25,7 +25,7 @@ public class Consulta {
     public void setId(int id) {
         this.id = id;
     } 
-    public void setDataConsulta(LocalDate dataConsulta) {
+    public void setDataConsulta(String dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
     public void setStatus(boolean status) {
@@ -41,7 +41,7 @@ public class Consulta {
     public String getPaciente_id() {
         return paciente_id;
     }
-    public LocalDate getDataConsulta() {
+    public String getDataConsulta() {
         return dataConsulta;
     }
     public boolean getStatus() {
