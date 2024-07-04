@@ -3,9 +3,10 @@ package view.dashboard.components;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import view.dashboard.Dashboard;
 
 public class HeaderPanel extends javax.swing.JPanel {
-
     public HeaderPanel() {
         initComponents();
         setOpaque(false);
@@ -27,6 +28,11 @@ public class HeaderPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/close.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -52,6 +58,13 @@ public class HeaderPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    public void closeDashBoard(){
+        
+    }
     
     @Override
     protected void paintComponent(Graphics g) {
@@ -61,7 +74,7 @@ public class HeaderPanel extends javax.swing.JPanel {
         graphinc.fillRoundRect(0, 0, getWidth(), getHeight(),15,15);
         graphinc.fillRect(0, 0,25, getHeight());
         graphinc.fillRect(getWidth()-25, getHeight()-25,getWidth() , getHeight());
-        super.paintComponent(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.paintComponent(g); 
     }
 
 

@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import models.FuncaoEnum;
-import models.Funcionario;
 import models.Medico;
 
 /**
@@ -26,7 +25,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
 
     public CadastrarFuncionario() {
         initComponents();
-        getEspecialidades();
+        loadEspecialidades();
     }
 
     @SuppressWarnings("unchecked")
@@ -349,7 +348,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCmbBoxFuncaoActionPerformed
 
-    private void getEspecialidades() {
+    private void loadEspecialidades() {
         EspecialidadeDAO dao = new EspecialidadeDAO(null);
         for (int i = 0; i < dao.listDaoObject().size(); i++) {
             especialidadeList.add(dao.listDaoObject().get(i));

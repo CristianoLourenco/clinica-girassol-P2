@@ -2,43 +2,46 @@ package models;
 
 import dao.MedicoDAO;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Medico extends Funcionario {
 
-    private int numeroOrdem;
-    // private String medico_especialidade;
-    private String horarioTrabalho;
-    private int especialidade_id;
+    private int numeroOrdem; 
+    private String especialidade_id;
+    private String hora_disponivel;
+    private LocalDate dia_disponivel;
 
     public Medico(
+            int id,
             int numeroOrdem,
-            String nome_funcionario,
-            String bi_funcionario,
-            String data_contrato,
-            String data_nascimento,
+            String especialidade,
+            String nome,
+            String bi,
+            String genero,
             String cargo,
             BigDecimal salario,
-            String genero,
-            FuncaoEnum funcao,
-            String telefone,
             String morada,
-            int especialidade
+            String telefone,
+            String data_nascimento,
+            String data_contrato,
+            String hora,
+            LocalDate dia
     ) {
-        this.nome_funcionario = nome_funcionario;
-        this.bi_funcionario = bi_funcionario;
+        this.id_funcionario = id;
+        this.numeroOrdem = numeroOrdem;
+        this.nome_funcionario = nome;
+        this.especialidade_id = especialidade;
+        this.bi_funcionario = bi;
+        this.genero = genero;
+        this.cargo = cargo;
         this.data_Contratacao = data_contrato;
         this.data_nascimento = data_nascimento;
-        this.cargo = cargo;
         this.salario = salario;
-        this.genero = genero;
-        this.funcao = funcao;
-        this.telefone = telefone;
         this.morada = morada;
-        this.especialidade_id = especialidade;
-        this.numeroOrdem = numeroOrdem;
-        //TODO: configurar o horario do medico
-        //  this.horarioTrabalho = horarioTrabalho;
+        this.telefone = telefone;
+        this.dia_disponivel = dia;
+        this.hora_disponivel = hora; 
     }
 
     public Medico() {
@@ -55,6 +58,31 @@ public class Medico extends Funcionario {
         return dao.insertDaoObject();
     }
 
+    public String getEspecialidade_id() {
+        return especialidade_id;
+    }
+
+    public void setEspecialidade_id(String especialidade_id) {
+        this.especialidade_id = especialidade_id;
+    }
+
+    public String getHora_disponivel() {
+        return hora_disponivel;
+    }
+
+    public void setHora_disponivel(String hora_disponivel) {
+        this.hora_disponivel = hora_disponivel;
+    }
+
+    public LocalDate getDia_disponivel() {
+        return dia_disponivel;
+    }
+
+    public void setDia_disponivel(LocalDate dia_disponivel) {
+        this.dia_disponivel = dia_disponivel;
+    }
+
+    
     public int getNumeroOrdem() {
         return numeroOrdem;
     }
@@ -63,20 +91,7 @@ public class Medico extends Funcionario {
         this.numeroOrdem = numeroOrdem;
     }
 
-    public void setEpecialidadeId(int id) {
-        this.especialidade_id = id;
-    }
+  
 
-    public int getEspecialidadeId() {
-        return this.especialidade_id;
-    }
-
-    public String getHorarioTrabalho() {
-        return horarioTrabalho;
-    }
-
-    public void setHorarioTrabalho(String horarioTrabalho) {
-        this.horarioTrabalho = horarioTrabalho;
-    }
-
+  
 }

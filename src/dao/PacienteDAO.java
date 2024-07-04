@@ -40,7 +40,7 @@ public class PacienteDAO implements IDao {
     }
 
     @Override
-    public  Object listDaoObject() {
+    public  List<Paciente> listDaoObject() {
         List<Paciente> lista = new ArrayList<>();
         String sql = "SELECT * FROM paciente ORDER BY id";
         try (PreparedStatement smt = con.prepareStatement(sql)) {

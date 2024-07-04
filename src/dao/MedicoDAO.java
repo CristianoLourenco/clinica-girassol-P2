@@ -41,23 +41,22 @@ public class MedicoDAO implements IDao {
     
 
     @Override
-    public Object listDaoObject() {
+    public  List<Medico>  listDaoObject() {
         List<Medico> listaMedicos = new ArrayList<>();
-        /*  String sql = "SELECT * FROM medico ORDER BY  numeroOrdem";
+      String sql = "SELECT * FROM medico_view";
         try{
             PreparedStatement smt = con.prepareStatement(sql);
-            ResultSet resultado = smt.executeQuery();
+            var resultado = smt.executeQuery();
             while (resultado.next()){
                 Medico m = new Medico();
                 m.setNumeroOrdem(resultado.getInt("numeroOrdem"));
-                m.setMedico_especialidade(resultado.getString("medico_especialidade"));
+              //  m.setMedico_especialidade(resultado.getString("medico_especialidade"));
                 m.setHorarioTrabalho(resultado.getString("horario_trabalho"));
                 listaMedicos.add(m);
             }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro ao buscar os Medicos");
-        }
-         */
+        } 
         return listaMedicos;
     }
 
