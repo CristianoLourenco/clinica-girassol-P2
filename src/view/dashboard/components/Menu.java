@@ -14,25 +14,45 @@ import viewModel.MenuModel;
 
 public class Menu extends javax.swing.JPanel {
 
+    private EventMenuSelected event;
+    private int x;
+    private int y;
+
     public Menu() {
         initComponents();
         setOpaque(false);
         listMenu1.setOpaque(false);
-        init();
-    }
-    
-    private EventMenuSelected event;
-    public void addEventMenuSelected(EventMenuSelected event){
-        this.event = event;
-        listMenu1.addEventMenuSelected(event);
+        initMenuItems();
     }
 
-    private void init() {
+    private void initMenuItems() {
         listMenu1.addItem(new MenuModel("Inicio", "home", MenuModel.MenuType.MENU));
         listMenu1.addItem(new MenuModel("Pacientes", "1", MenuModel.MenuType.MENU));
         listMenu1.addItem(new MenuModel("Funcionários", "3", MenuModel.MenuType.MENU));
         listMenu1.addItem(new MenuModel("Especialidade", "5", MenuModel.MenuType.MENU));
         listMenu1.addItem(new MenuModel("Consultas", "4", MenuModel.MenuType.MENU));
+    }
+
+    public void addEventMenuSelected(EventMenuSelected event) {
+        this.event = event;
+        listMenu1.addEventMenuSelected(this.event);
+    }
+
+    public void initMoviment(JFrame frame) {
+        panelMoving.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                x = e.getX();
+                y = e.getY();
+            }
+        });
+
+        panelMoving.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                frame.setLocation(e.getXOnScreen() - x, e.getYOnScreen() - y);
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -95,30 +115,8 @@ public class Menu extends javax.swing.JPanel {
         graphinc.setPaint(gradient);
         graphinc.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
         graphinc.fillRect(getWidth() - 20, 0, getWidth(), getHeight());
-        super.paintChildren(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        super.paintChildren(g);
     }
-
-    private int x;
-    private int y;
-
-    public void initMoviment(JFrame frame) {
-        panelMoving.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                x = e.getX();
-                y = e.getY();
-            }
-
-        });
-        panelMoving.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                frame.setLocation(e.getXOnScreen() - x, e.getYOnScreen() - y);
-            }
-
-        });
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

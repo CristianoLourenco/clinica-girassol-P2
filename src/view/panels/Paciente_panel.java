@@ -23,7 +23,7 @@ public class Paciente_panel extends javax.swing.JPanel {
 
         List<Paciente> lista = (ArrayList<Paciente>) dao.listDaoObject();
         for (int i = 0; i < lista.size(); i++) {
-            defultTableModel.addRow(lista.get(i).listPropieties());
+            defultTableModel.addRow(lista.get(i).toList());
         }
     }
 
