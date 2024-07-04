@@ -310,7 +310,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         int especialidade_id = getEspecialidadeId();
 
         // Funcionario funcionarioModel;
-        Medico medicoModel = new Medico(
+        /*Medico medicoModel = new Medico(
                 Integer.parseInt(jTextNumeroDaOrdem.getText()),
                 nome, bi_funcionario,
                 data_contrato,
@@ -326,7 +326,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
 
         boolean result = medicoModel.cadastrarFuncionario();
 
-        System.out.println("Medico cadastrado: " + result);
+        System.out.println("Medico cadastrado: " + result);*/
     }//GEN-LAST:event_jBtnCadastrarFuncionarioActionPerformed
 
     private int getEspecialidadeId() {
