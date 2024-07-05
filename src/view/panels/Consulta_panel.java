@@ -44,11 +44,11 @@ public class Consulta_panel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Id", "Medico", "Paciente", "Data Marcada", "Hora", "Status"
+                "Id", "Medico", "Paciente", "Data Marcada", "Hora", "Status", "Especialidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

@@ -70,6 +70,10 @@ public class Funcionario {
         return telefone;
     }
 
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     public String getDataNascimento() {
         return data_nascimento;
     }
@@ -148,5 +152,13 @@ public class Funcionario {
 
     public void setSalario(BigDecimal salario) {
         this.salario = salario;
+    }
+
+    public void setData_nascimento(String data_nascimento) {
+        this.data_nascimento = data_nascimento;
+    }
+
+    public void setFuncao(FuncaoEnum funcao) {
+        this.funcao = funcao;
     }
 }

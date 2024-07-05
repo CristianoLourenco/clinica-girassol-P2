@@ -21,6 +21,9 @@ public class Paciente {
         this.genero = genero;
     }
 
+    public Paciente() {
+    }
+
     public boolean cadastrarPaciente() {
         PacienteDAO dao = new PacienteDAO(this);
         return dao.insertDaoObject();

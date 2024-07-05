@@ -32,39 +32,39 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="nome_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="nome" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="data_nascimento_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="data_nascimento" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="bilhete_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="bilhete" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="genero_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="genero" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="telefone_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefone" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="morada_medico" min="-2" max="-2" attributes="0"/>
+                          <Component id="morada" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="especialidade_medico" min="-2" max="-2" attributes="0"/>
+                      <Component id="especialidade" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="112" max="32767" attributes="0"/>
@@ -86,37 +86,37 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nome_medico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="especialidade_medico" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="especialidade" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="data_nascimento_medico" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="data_nascimento" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bilhete_medico" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="bilhete" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel12" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="genero_medico" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="genero" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefone_medico" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="telefone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="morada_medico" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="morada" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
@@ -154,7 +154,7 @@
         <Property name="text" type="java.lang.String" value="============================="/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="morada_medico">
+    <Component class="javax.swing.JLabel" name="morada">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -187,7 +187,7 @@
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="telefone_medico">
+    <Component class="javax.swing.JLabel" name="telefone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -198,7 +198,7 @@
         <Property name="text" type="java.lang.String" value="telefone"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="bilhete_medico">
+    <Component class="javax.swing.JLabel" name="bilhete">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -209,7 +209,7 @@
         <Property name="text" type="java.lang.String" value="bi"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="genero_medico">
+    <Component class="javax.swing.JLabel" name="genero">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -220,7 +220,7 @@
         <Property name="text" type="java.lang.String" value="genero"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="data_nascimento_medico">
+    <Component class="javax.swing.JLabel" name="data_nascimento">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -264,7 +264,7 @@
         <Property name="text" type="java.lang.String" value="Identifica&#xe7;&#xe3;o (Bi):"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="nome_medico">
+    <Component class="javax.swing.JLabel" name="nome">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>
@@ -297,7 +297,7 @@
         <Property name="text" type="java.lang.String" value="N&#xba; da Ordem:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="especialidade_medico">
+    <Component class="javax.swing.JLabel" name="especialidade">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Roboto Light" size="14" style="0"/>

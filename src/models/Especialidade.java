@@ -11,7 +11,9 @@ public class Especialidade {
     public Especialidade(String nomeEspecilidade, String descricao) {
         this.nomeEspecialidade = nomeEspecilidade;
         this.descricao = descricao;
+    }
 
+    public Especialidade() {
     }
 
     public boolean cadastrarEspecialidade() {

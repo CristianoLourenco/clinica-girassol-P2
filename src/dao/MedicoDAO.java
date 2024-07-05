@@ -57,15 +57,12 @@ public class MedicoDAO implements IDao {
                 m.setNome_funcionario(resultado.getString("nome"));
                 m.setBi_funcionario(resultado.getString("bi"));
                 m.setGenero(resultado.getString("genero"));
-                //m.setSalario(  resultado.getObject("Ordem_id"));
-                m.setEspecialidade_id(resultado.getString("Especialidade"));
-                m.setHora_disponivel(resultado.getString("Hora disponivel"));
-                m.setNumeroOrdem(resultado.getInt("Ordem_id"));
-                m.setEspecialidade_id(resultado.getString("Especialidade"));
-                m.setHora_disponivel(resultado.getString("Hora disponivel"));
-                m.setNumeroOrdem(resultado.getInt("Ordem_id"));
-                m.setEspecialidade_id(resultado.getString("Especialidade"));
-                m.setHora_disponivel(resultado.getString("Hora disponivel"));
+                m.setSalario(salario);
+                m.setMorada(resultado.getString("morada"));
+                m.setData_nascimento(resultado.getDate("data_nascimento").toString());
+                m.setData_Contratacao(resultado.getDate("data_contrato").toString());
+               // m.setDia_disponivel(resultado.getDate("Dia disponivel").toLocalDate());
+               // m.setHora_disponivel(resultado.getTime("Hora disponivel").toString());
                 listaMedicos.add(m);
             }
         } catch (SQLException ex) {
